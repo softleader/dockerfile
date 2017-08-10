@@ -1,6 +1,8 @@
 # SoftLeader tomcat image
 
-FROM [softleader/base](https://github.com/softleader/dockerfile/tree/master/base)
+> 依賴了 [softleader/base](https://github.com/softleader/dockerfile/tree/master/base)
+
+## Installed
 
 - Tomcat 8.5
 
