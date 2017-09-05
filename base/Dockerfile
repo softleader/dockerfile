@@ -16,3 +16,6 @@ RUN apk update \
 RUN ls /usr/share/zoneinfo && \
 	cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime && \
 	echo "Asia/Taipei" > /etc/timezone
+
+VOLUME /logs
+VOLUME /dumps
