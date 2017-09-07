@@ -2,20 +2,19 @@ FROM frolvlad/alpine-oraclejdk8
 MAINTAINER softleader.com.tw
 
 # install packages
-RUN apk update \ 
-	&& apk --no-cache add \
+RUN apk update && \ 
+	apk --no-cache add \
 		bash \
 		vim \
 		htop \
 		curl \
 		procps \
 		tzdata \
-	&& rm -rf /var/cache/apk/*
+	&& rm -rf /var/cache/apk/* && \
 
-# https://wiki.alpinelinux.org/wiki/Setting_the_timezone
-RUN ls /usr/share/zoneinfo && \
+	# set timezone: https://wiki.alpinelinux.org/wiki/Setting_the_timezone
+	ls /usr/share/zoneinfo && \
 	cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime && \
 	echo "Asia/Taipei" > /etc/timezone
 
-VOLUME /logs
-VOLUME /dumps
+VOLUME /logs /dumps
