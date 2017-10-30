@@ -41,7 +41,7 @@ FROM softleader/tomcat85
 VOLUME /tmp
 
 RUN echo '#! /bin/sh' > ${TOMCAT_HOME}/bin/setenv.sh
-RUN echo 'export JAVA_OPTS="-Xmx1536m -Xmx1536m' >> ${TOMCAT_HOME}/bin/setenv.sh
+RUN echo 'export JAVA_OPTS="-Xmx1536m -Xmx1536m"' >> ${TOMCAT_HOME}/bin/setenv.sh
 
 COPY target/app.war ${TOMCAT_HOME}/webapps/ROOT.war
 
@@ -87,7 +87,7 @@ FROM softleader/tomcat85:ssl
 VOLUME /tmp
 
 RUN echo '#! /bin/sh' > ${TOMCAT_HOME}/bin/setenv.sh
-RUN echo 'export JAVA_OPTS="-Xmx1536m -Xmx1536m' >> ${TOMCAT_HOME}/bin/setenv.sh
+RUN echo 'export JAVA_OPTS="-Xmx1536m -Xmx1536m"' >> ${TOMCAT_HOME}/bin/setenv.sh
 
 COPY target/app.war ${TOMCAT_HOME}/webapps/ROOT.war
 
