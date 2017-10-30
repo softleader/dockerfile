@@ -94,8 +94,8 @@ CMD ${TOMCAT_HOME}/bin/catalina.sh run
 
 ```
 $ docker run -it-d  -p 80:8080 -p 443:8443 \
-    -v /path/to/.crt:/opt/tomcat/conf/server.crt \
-    -v /path/to/.key:/opt/tomcat/conf/server.key \
+    -v /path/to/.crt:/certs/server.crt \
+    -v /path/to/.key:/certs/server.key \
     my-ssl-tomcat
 ```
 
@@ -104,7 +104,7 @@ $ docker run -it-d  -p 80:8080 -p 443:8443 \
 ```
 $ docker run -itd  -p 80:8080 -p 443:8443 \
     -v /path/to/server.xml:/opt/tomcat/conf/server.xml \
-    -v /path/to/.crt:/opt/tomcat/conf/server.crt \
-    -v /path/to/.key:/opt/tomcat/conf/server.key \
+    -v /path/to/.crt:/certs/server.crt \
+    -v /path/to/.key:/certs/server.key \
     my-ssl-tomcat
 ```
