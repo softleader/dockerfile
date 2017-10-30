@@ -21,6 +21,8 @@
 You can build tomcat image from source code
 
 ```
+$ git clone git@github.com:softleader/dockerfile.git
+$ cd dockerfile/tomcat85
 $ docker build -t softleader/tomcat85 .
 ```
 
@@ -65,6 +67,8 @@ $ docker run -itd -p 80:8080 \
 You can build SSL tomcat image from source code
 
 ```
+$ git clone git@github.com:softleader/dockerfile.git
+$ cd dockerfile/tomcat85
 $ docker build -t softleader/tomcat85:ssl -f Dockerfile.ssl .
 ```
 
