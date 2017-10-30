@@ -21,13 +21,13 @@
 You can build tomcat image from source code
 
 ```
-$ docker build -t softleader/tomcat .
+$ docker build -t softleader/tomcat85 .
 ```
 
 or pull from docker hud
 
 ```
-$ docker pull softleader/tomcat
+$ docker pull softleader/tomcat85
 ```
 
 Write *my-tomcat* Dockerfile:
@@ -65,13 +65,13 @@ $ docker run -itd -p 80:8080 \
 You can build SSL tomcat image from source code
 
 ```
-$ docker build -t softleader/tomcat:ssl -f Dockerfile.ssl .
+$ docker build -t softleader/tomcat85:ssl -f Dockerfile.ssl .
 ```
 
 or pull from docker hud
 
 ```
-$ docker pull softleader/tomcat:ssl
+$ docker pull softleader/tomcat85:ssl
 ```
 
 Write *my-ssl-tomcat* Dockerfile
