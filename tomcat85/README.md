@@ -58,7 +58,7 @@ $ docker run -itd -p 80:8080 my-tomcat
 
 ```
 $ docker run -itd -p 80:8080 \
-    -v /path/to/server.xml:/opt/tomcat/conf/server.xml \
+    -v /path/to/my-server.xml:/opt/tomcat/conf/server.xml \
     my-tomcat
 ```
 
