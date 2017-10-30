@@ -19,5 +19,6 @@ RUN mkdir /opt && \
 
 COPY logging.properties ${TOMCAT_HOME}/conf/logging.properties
 COPY server-ssl.xml ${TOMCAT_HOME}/conf/server.xml
+COPY web-ssl.xml ${TOMCAT_HOME}/conf/web.xml
 
 EXPOSE 8080 8443
