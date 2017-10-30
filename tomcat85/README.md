@@ -32,7 +32,7 @@ or pull from docker hud
 $ docker pull softleader/tomcat85
 ```
 
-Write *my-tomcat* Dockerfile:
+Write a Dockerfile:
 
 ```
 FROM softleader/tomcat85
@@ -48,7 +48,7 @@ COPY target/app.war ${TOMCAT_HOME}/webapps/ROOT.war
 CMD ${TOMCAT_HOME}/bin/catalina.sh run
 ```
 
-run:
+run *my-tomcat*:
 
 ```
 $ docker run -itd -p 80:8080 my-tomcat
@@ -78,7 +78,7 @@ or pull from docker hud
 $ docker pull softleader/tomcat85:ssl
 ```
 
-Write *my-ssl-tomcat* Dockerfile
+Write a Dockerfile
 
 ```
 FROM softleader/tomcat85:ssl
@@ -94,7 +94,7 @@ COPY target/app.war ${TOMCAT_HOME}/webapps/ROOT.war
 CMD ${TOMCAT_HOME}/bin/catalina.sh run
 ```
 
-*tomcat85:ssl* 的 `server.xml` 在啟動時, 會固定讀取 container 中的 `/certs/server.crt` 及 `/certs/server.key`, 因此記得要 mount 進去
+run *my-ssl-tomcat*, *tomcat85:ssl* 的 `server.xml` 在啟動時, 會固定讀取 container 中的 `/certs/server.crt` 及 `/certs/server.key`, 因此記得要 mount 進去
 
 ```
 $ docker run -itd  -p 80:8080 -p 443:8443 \
