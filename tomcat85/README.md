@@ -113,7 +113,7 @@ $ docker run -itd  -p 80:8080 -p 443:8443 \
     my-ssl-tomcat
 ```
 
-預設會將所有 80 redirect 443, 可以打自己 `web.xml` mount 進去覆寫這段
+預設會將所有 *80* 自動轉到 *443*, 可以把自己的 `web.xml` mount 進去覆寫這段
 
 ```
 $ docker run -itd  -p 80:8080 -p 443:8443 \
