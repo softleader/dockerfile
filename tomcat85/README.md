@@ -94,7 +94,28 @@ COPY target/app.war ${TOMCAT_HOME}/webapps/ROOT.war
 CMD ${TOMCAT_HOME}/bin/catalina.sh run
 ```
 
-*tomcat85:ssl* 的 `server.xml` 在啟動時, 會固定讀取 container 中的 `/certs/server.crt` 及 `/certs/server.key`, 因此記得要 mount 進去
+
+*tomcat85:ssl* 的 `server.xml` 會固定加上下述 connector:
+
+```xml
+<Connector port="8443" 
+       maxHttpHeaderSize="8192" 
+       maxThreads="150" 
+       minSpareThreads="25" 
+       maxSpareThreads="75" 
+       enableLookups="false" 
+       disableUploadTimeout="true" 
+       acceptCount="100" 
+       scheme="https" 
+       secure="true" 
+       SSLEnabled="true" 
+       clientAuth="false" 
+       sslProtocol="TLS" 
+       SSLCertificateFile="/certs/server.crt"
+       SSLCertificateKeyFile="/certs/server.key" />
+```
+
+因此會固定讀取 container 中的 `/certs/server.crt` 及 `/certs/server.key`, 因此記得要 mount 進去
 
 ```
 $ docker run -itd -p 80:8080 -p 443:8443 \
@@ -103,7 +124,7 @@ $ docker run -itd -p 80:8080 -p 443:8443 \
     my-ssl-tomcat
 ```
 
-如果把自己的 `server.xml` mount 進去, 則可以覆蓋預設的版本 (例如想將 *crt* 改成使用 *jks*)
+原果像要完整控制則可把 `server.xml` mount 進去, 以覆蓋預設的版本 (例如想將 *crt* 改成使用 *jks*)
 
 ```
 $ docker run -itd -p 80:8080 -p 443:8443 \
@@ -123,3 +144,5 @@ $ docker run -itd -p 80:8080 -p 443:8443 \
     -v /path/to/my-web.xml:/opt/tomcat/conf/web.xml \
     my-ssl-tomcat
 ```
+
+> see [Tomcat85 SSL Support - Certificate](https://tomcat.apache.org/tomcat-8.5-doc/config/http.html#SSL_Support) for more detail
