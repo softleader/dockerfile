@@ -122,7 +122,7 @@ $ docker run -itd -p 80:8080 -p 443:8443 \
     my-ssl-tomcat
 ```
 
-原果像要完整控制則可把 `server.xml` mount 進去, 以覆蓋預設的版本 (例如想將 *crt* 改成使用 *jks*)
+如果想要完整控制, 則可把 `server.xml` mount 進去, 以覆蓋預設的版本 (例如想將 *crt* 改成使用 *jks*)
 
 ```
 $ docker run -itd -p 80:8080 -p 443:8443 \
