@@ -101,8 +101,6 @@ CMD ${TOMCAT_HOME}/bin/catalina.sh run
 <Connector port="8443" 
        maxHttpHeaderSize="8192" 
        maxThreads="150" 
-       minSpareThreads="25" 
-       maxSpareThreads="75" 
        enableLookups="false" 
        disableUploadTimeout="true" 
        acceptCount="100" 
