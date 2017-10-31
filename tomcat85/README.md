@@ -113,7 +113,7 @@ CMD ${TOMCAT_HOME}/bin/catalina.sh run
        SSLCertificateKeyFile="/certs/server.key" />
 ```
 
-> see [Tomcat85 SSL Support - Certificate](https://tomcat.apache.org/tomcat-8.5-doc/config/http.html#SSL_Support) for more detail
+> see [Tomcat8 SSL Support - Certificate](https://tomcat.apache.org/tomcat-8.5-doc/config/http.html#SSL_Support) for more detail
 
 因此會固定讀取 container 中的 `/certs/server.crt` 及 `/certs/server.key`, 因此記得要 mount 進去
 
