@@ -2,7 +2,7 @@ FROM softleader/base
 MAINTAINER softleader.com.tw
 
 ENV TOMCAT_MAJOR=8 \
-    TOMCAT_VERSION=8.5.3 \
+    TOMCAT_VERSION=8.5.23 \
     TOMCAT_HOME=/opt/tomcat \
     CATALINA_HOME=/opt/tomcat \
     CATALINA_OUT=/dev/null

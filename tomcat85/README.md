@@ -94,33 +94,45 @@ COPY target/app.war ${TOMCAT_HOME}/webapps/ROOT.war
 CMD ${TOMCAT_HOME}/bin/catalina.sh run
 ```
 
-
 *tomcat85:ssl* 的 `server.xml` 會固定加上下述 connector:
 
 ```xml
-<Connector port="8443" 
-       maxHttpHeaderSize="8192" 
-       maxThreads="150" 
-       enableLookups="false" 
-       disableUploadTimeout="true" 
-       acceptCount="100" 
-       scheme="https" 
-       secure="true" 
-       SSLEnabled="true" 
-       clientAuth="false" 
-       sslProtocol="TLS" 
-       SSLCertificateFile="/certs/server.crt"
-       SSLCertificateKeyFile="/certs/server.key" />
+<Conector port="8443" 
+    maxHttpHeaderSize="8192"
+    maxThreads="150" 
+    enableLookups="false" 
+    disableUploadTimeout="true" 
+    acceptCount="100" 
+    scheme="https" 
+    secure="true" 
+    SSLEngine="on"
+    SSLEnabled="true" 
+    clientAuth="false" 
+    sslProtocol="TLSv1.2"
+    sslEnabledProtocols="TLSv1.2"
+    xpoweredBy="false"
+    SSLCertificateFile="/certs/server.crt"
+    SSLCertificateKeyFile="/certs/server.key"
+    SSLCertificateChainFile="/certs/chain.crt"/>
 ```
 
 > see [Tomcat8 SSL Support - Certificate](https://tomcat.apache.org/tomcat-8.5-doc/config/http.html#SSL_Support) for more detail
 
-因此會固定讀取 container 中的 `/certs/server.crt` 及 `/certs/server.key`, 因此記得要 mount 進去
+*tomcat85:ssl* 的 `server.xml` 在啟動時, 預設會固定讀取 3 個檔: 
+
+- `/certs/server.crt` - end-user 憑證
+- `/certs/server.key` - private key
+- `/certs/chain.cert` - 中繼 + root 的串聯憑證
+
+> `$ cat issuing_ca.crt root_ca.crt > chain.crt`
+
+因此要記得 mount 給 container
 
 ```
 $ docker run -itd -p 80:8080 -p 443:8443 \
-    -v /path/to/my.crt:/certs/server.crt \
-    -v /path/to/my.key:/certs/server.key \
+    -v /path/to/my-server.crt:/certs/server.crt \
+    -v /path/to/my-server.key:/certs/server.key \
+    -v /path/to/my-chain.key:/certs/chain.key \
     my-ssl-tomcat
 ```
 
@@ -128,8 +140,9 @@ $ docker run -itd -p 80:8080 -p 443:8443 \
 
 ```
 $ docker run -itd -p 80:8080 -p 443:8443 \
-    -v /path/to/my.crt:/certs/server.crt \
-    -v /path/to/my.key:/certs/server.key \
+    -v /path/to/my-server.crt:/certs/server.crt \
+    -v /path/to/my-server.key:/certs/server.key \
+    -v /path/to/my-chain.key:/certs/chain.key \
     -v /path/to/my-server.xml:/opt/tomcat/conf/server.xml \
     my-ssl-tomcat
 ```
@@ -138,8 +151,9 @@ $ docker run -itd -p 80:8080 -p 443:8443 \
 
 ```
 $ docker run -itd -p 80:8080 -p 443:8443 \
-    -v /path/to/my.crt:/certs/server.crt \
-    -v /path/to/my.key:/certs/server.key \
+    -v /path/to/my-server.crt:/certs/server.crt \
+    -v /path/to/my-server.key:/certs/server.key \
+    -v /path/to/my-chain.key:/certs/chain.key \
     -v /path/to/my-server.xml:/opt/tomcat/conf/server.xml \
     -v /path/to/my-web.xml:/opt/tomcat/conf/web.xml \
     my-ssl-tomcat
