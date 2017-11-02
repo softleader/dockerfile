@@ -118,7 +118,7 @@ CMD ${TOMCAT_HOME}/bin/catalina.sh run
 
 > see [Tomcat8 SSL Support - Certificate](https://tomcat.apache.org/tomcat-8.5-doc/config/http.html#SSL_Support) for more detail
 
-*tomcat85:ssl* 的 `server.xml` 在啟動時, 預設會固定讀取 3 個檔: 
+因此一定會讀取 3 個檔: 
 
 - `/certs/server.crt` - end-user 憑證
 - `/certs/server.key` - private key
@@ -126,7 +126,7 @@ CMD ${TOMCAT_HOME}/bin/catalina.sh run
 
 > `$ cat issuing_ca.crt root_ca.crt > chain.crt`
 
-因此要記得 mount 給 container
+所以要記得 mount 給 container
 
 ```
 $ docker run -itd -p 80:8080 -p 443:8443 \
