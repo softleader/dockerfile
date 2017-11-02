@@ -97,7 +97,7 @@ CMD ${TOMCAT_HOME}/bin/catalina.sh run
 *tomcat85:ssl* 的 `server.xml` 會固定加上下述 connector:
 
 ```xml
-<Conector port="8443" 
+<Connector port="8443" 
     maxHttpHeaderSize="8192"
     maxThreads="150" 
     enableLookups="false" 
