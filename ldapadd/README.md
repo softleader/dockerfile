@@ -25,7 +25,7 @@ $ docker run -t -v "$(pwd)":/data \
 
 ### -e
 
-- `FILE` - read operations from file **REQUIRED**
+- `FILE` - read operations from file (**REQUIRED**)
 - `BINDDN` - bind DN (default: `uid=admin,ou=system`)
 - `HOST` - LDAP server (default: `127.0.0.1`)
 - `PORT` - port on LDAP server (defualt: `10389`)
