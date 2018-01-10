@@ -1,6 +1,6 @@
 # SoftLeader ldapadd
 
->  Quick init LDAP data
+>  Quick Initialize LDAP data
 
 ## Preparing your LDIF file for initiation 
 
