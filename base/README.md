@@ -1,4 +1,4 @@
-# SoftLeader base image
+# SoftLeader Base
 
 ## Installed
 

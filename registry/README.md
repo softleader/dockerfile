@@ -1,3 +1,3 @@
-# Softleader Registry
+# SoftLeader Registry
 
 SoftLeader registry
