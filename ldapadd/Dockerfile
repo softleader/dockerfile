@@ -8,7 +8,7 @@ RUN apk update && \
 	&& rm -rf /var/cache/apk/*
 
 ENV WORKDIR=/data \
-		FILE=sample.ldif \
+		FILE= \
 		BINDDN=uid=admin,ou=system \
 		HOST=127.0.0.1 \
 		PORT=10389 \
