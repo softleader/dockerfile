@@ -4,7 +4,7 @@
 
 ## Preparing your LDIF file for initiation 
 
-let's say `my.ldif` looks like
+let's say `my.ldif` looks like:
 
 ```ld
 version: 1
