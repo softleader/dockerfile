@@ -7,7 +7,7 @@ RUN apk update && \
 		curl \
 	&& rm -rf /var/cache/apk/*
 
-ENV WORKDIR /data \
+ENV WORKDIR=/data \
 		FILE=sample.ldif \
 		BINDDN=uid=admin,ou=system \
 		HOST=127.0.0.1 \
