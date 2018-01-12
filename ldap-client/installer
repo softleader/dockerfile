@@ -24,7 +24,7 @@ fi
 # delete dn array
 if [[ $1 == "deletedn" ]]; then
 	shift
-	ldapdelete -vc -h 192.168.1.88 -p 10389 -x -D "uid=admin,ou=system" -w secret $*
+	ldapdelete -vc -h $HOST -p $PORT -x -D $BINDDN -w $PASSWD $*
 fi
 
 
