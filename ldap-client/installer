@@ -24,7 +24,7 @@ fi
 # delete dn array
 if [[ $1 == "deletedn" ]]; then
 	shift
-	ldapdelete -vc -h $HOST -p $PORT -x -D $BINDDN -w $PASSWD $*
+	ldapdelete -v -h $HOST -p $PORT -c -x -D $BINDDN -w $PASSWD $*
 fi
 
 
