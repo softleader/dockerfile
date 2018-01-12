@@ -1,0 +1,18 @@
+version: 1
+
+dn: dc=softleader,dc=example,dc=com
+objectClass: domain
+objectClass: top
+dc: softleader
+
+dn: o=00,dc=softleader,dc=example,dc=com
+objectClass: organization
+objectClass: top
+o: 00
+
+dn: uid=admin,o=00,dc=softleader,dc=example,dc=com
+objectClass: inetOrgPerson
+objectClass: top
+cn: admin
+sn: admin
+uid: admin

@@ -1,0 +1,31 @@
+ #!/bin/bash
+
+# Program:
+#       This program can let you easy to initial ldap data
+# History:
+# 2018/01/12	Dennis	First release
+
+
+# initial sample.ldif
+if [[ $1 == "initial" ]]; then
+	cp /tmp/sample.ldif /data
+fi
+
+# add sample.ldif setting
+if [[ $1 == "createdn" ]]; then
+	ldapadd -v -h $HOST -p $PORT -c -x -D $BINDDN -w $PASSWD -f sample.ldif
+fi
+
+# change password
+if [[ $1 == "changepwd" ]]; then
+	ldappasswd -v -h $HOST -p $PORT -x -D $BINDDN -w $PASSWD -a $PASSWD -s $NEWPASSWD
+fi
+
+# delete dn array
+if [[ $1 == "deletedn" ]]; then
+	shift
+	ldapdelete -vc -h 192.168.1.88 -p 10389 -x -D "uid=admin,ou=system" -w secret $*
+fi
+
+
+exit 0
