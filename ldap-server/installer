@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# Program:
+#       This program can let you easy to use ApacheDS server
+# History:
+# 2018/02/06	Dennis	First release
+
+
+# initial apacheds-2.0.0-M24
+if [ $1 == "initial" ]; then
+	cp -r /tmp/apacheds-2.0.0-M24 /var/lib
+fi
+
+# start ApacheDS server
+if [ $1 == "start" ]; then
+	/etc/init.d/apacheds-2.0.0-M24-default start
+	bash
+fi
+
+# bash
+if [ $1 == "bash" ] && [ $# -eq 1 ]; then
+	bash
+elif [ $1 == "bash" ]; then
+	shift
+	bash -c $*
+fi
+
+exit 0
