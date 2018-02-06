@@ -13,7 +13,7 @@ RUN curl -O http://ftp.twaren.net/Unix/Web/apache//directory/apacheds/dist/2.0.0
 	&& chmod +x apacheds-2.0.0-M24-amd64.deb \
 	&& dpkg -i apacheds-2.0.0-M24-amd64.deb 
 
-RUN mkdir /tmp && cp -r /var/lib/apacheds-2.0.0-M24 /
+RUN cp -r /var/lib/apacheds-2.0.0-M24 /tmp
 
 COPY installer /installer.sh
 
