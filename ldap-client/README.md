@@ -1,4 +1,4 @@
-# SoftLeader ldapadd
+# SoftLeader ldap-client
 
 >  Quick Initialize LDAP data
 
