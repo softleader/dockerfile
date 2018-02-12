@@ -70,7 +70,7 @@ docker run -it --rm softleader/ldap-client deletedn [dc=softleader,dc=example,dc
 
 ## Example
 
-在公司的 `Ldap Server` create 一個 `DN` 
+在公司的 `Ldap Server` 執行 create Dn
 
 ```shell
 $ docker run -it --rm -e HOST=softleader.com.tw -e PORT=10388 -v "$(pwd)":/data softleader/ldap-client createdn
