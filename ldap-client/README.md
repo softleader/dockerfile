@@ -56,7 +56,7 @@ $ docker run -it --rm -e NEWPASSWD=${your new password} softleader/ldap-client c
 **Delete Dn:**
 
 ```shell
-docker run -it --rm softleader/ldap-client deletedn [dc=softleader,dc=example,dc=com ...]
+docker run -it --rm softleader/ldap-client deletedn dc=softleader,dc=example,dc=com ...
 ```
 
 ### -e
