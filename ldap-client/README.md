@@ -68,3 +68,11 @@ docker run -it --rm softleader/ldap-client deletedn [dc=softleader,dc=example,dc
 - `PASSWD` - bind password (for simple authentication) (default: `secret`)
 - `NEWPASSWD` - change password (default: `secret`)
 
+## Example
+
+在公司的 `Ldap Server` create 一個 `DN` 
+
+```shell
+$ docker run -it --rm -e HOST=softleader.com.tw -e PORT=10388 -v "$(pwd)":/data softleader/ldap-client createdn
+```
+
