@@ -1,8 +1,8 @@
  #!/bin/bash
 
-GOOS=""
-GOARCH=""
-OUTPUT=ck
+GOOS="GOOS=linux"
+GOARCH="GOARCH=amd64"
+OUTPUT="ck"
 
 for arg in "$@"
 do
@@ -13,14 +13,6 @@ do
         GOARCH=$arg
     fi
 done
-
-if [[ -z $GOOS ]]; then
-    GOOS="GOOS=linux"
-fi
-
-if [[ -z $GOARCH ]]; then
-    GOARCH="GOARCH=amd64"
-fi
 
 if [[ $GOOS == "GOOS=macos" ]]; then
     GOOS="GOOS=darwin"
