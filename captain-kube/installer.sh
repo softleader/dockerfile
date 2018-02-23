@@ -15,7 +15,8 @@ do
     fi
 done
 
-if [ $GOOS == "GOOS=macos" ]; then
+if [ $GOOS = "GOOS=macos" ]
+then
     GOOS="GOOS=darwin"
 fi
 
