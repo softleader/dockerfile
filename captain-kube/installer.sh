@@ -1,20 +1,21 @@
- #!/bin/bash
+#!/bin/bash
 
 GOOS="GOOS=linux"
 GOARCH="GOARCH=amd64"
 OUTPUT="ck"
 
-for arg in "$@"
+for arg
 do
-    if [[ $arg == GOOS* ]]; then
+    if [ ${arg:0:4} = "GOOS" ]
+    then
         GOOS=$arg
-    fi
-    if [[ $arg == GOARCH* ]]; then
+    elif [ ${arg:0:6} = "GOARCH" ]
+    then
         GOARCH=$arg
     fi
 done
 
-if [[ $GOOS == "GOOS=macos" ]]; then
+if [ $GOOS == "GOOS=macos" ]; then
     GOOS="GOOS=darwin"
 fi
 
