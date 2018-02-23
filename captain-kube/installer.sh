@@ -1,22 +1,32 @@
  #!/bin/bash
 
-GOOS="$1"
-GOARCH="$2"
-APP=ck
+GOOS=""
+GOARCH=""
+CMD=ck
+
+for arg in "$@"
+do
+    if [[ $arg == GOOS* ]]; then
+        GOOS=$arg
+    fi
+    if [[ $arg == GOARCH* ]]; then
+        GOARCH=$arg
+    fi
+done
 
 if [[ -z $GOOS ]]; then
-    GOOS=linux && echo "Use '$GOOS' as default GOOS"
+    GOOS="GOOS=linux"
 fi
 
 if [[ -z $GOARCH ]]; then
-    GOARCH=amd64 && echo "Use '$GOARCH' as default GOARCH"
+    GOARCH="GOARCH=amd64"
 fi
 
-if [[ $GOOS == "macos" ]]; then
-    GOOS=darwin
+if [[ $GOOS == "GOOS=macos" ]]; then
+    GOOS="GOOS=darwin"
 fi
 
 go get github.com/softleader/captain-kube && \
-make -C $GOPATH/src/github.com/softleader/captain-kube GOOS=$GOOS $GOARCH=GOARCH APP=$APP BINARY=$(pwd)
+make -C $GOPATH/src/github.com/softleader/captain-kube $GOOS $GOARCH BINARY=$(pwd) CMD=$CMD
 
 exit 0
