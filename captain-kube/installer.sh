@@ -2,7 +2,7 @@
 
 GOOS=""
 GOARCH=""
-CMD=ck
+OUTPUT=ck
 
 for arg in "$@"
 do
@@ -27,6 +27,6 @@ if [[ $GOOS == "GOOS=macos" ]]; then
 fi
 
 go get github.com/softleader/captain-kube && \
-make -C $GOPATH/src/github.com/softleader/captain-kube $GOOS $GOARCH BINARY=$(pwd) CMD=$CMD
+make -C $GOPATH/src/github.com/softleader/captain-kube $GOOS $GOARCH BINARY=$(pwd) OUTPUT=$OUTPUT
 
 exit 0
