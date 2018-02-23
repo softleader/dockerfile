@@ -6,5 +6,5 @@ Get, build & install [Captain Kube](https://github.com/softleader/captain-kube)
 
 ```shell
 $ docker build -t softleader/captain-kube .
-$ docker push softleader/captain-kube:master
+$ docker push softleader/captain-kube
 ```
