@@ -2,7 +2,7 @@
 
 GOOS="GOOS=linux"
 GOARCH="GOARCH=amd64"
-OUTPUT="ck"
+OUTPUT="ckube"
 
 for arg
 do
