@@ -13,7 +13,7 @@ fi
 
 # add sample.ldif setting
 if [[ $1 == "createdn" ]]; then
-	ldapadd -v -h $HOST -p $PORT -c -x -D $BINDDN -w $PASSWD -f sample.ldif
+	ldapadd -v -h $HOST -p $PORT -c -x -D $BINDDN -w $PASSWD -f $FILE
 fi
 
 # change password
