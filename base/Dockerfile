@@ -7,6 +7,7 @@ RUN apk update && \
 		bash \
 		vim \
 		htop \
+		tree \
 		curl \
 		procps \
 		tzdata \
