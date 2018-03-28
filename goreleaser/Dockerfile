@@ -18,4 +18,7 @@ RUN apk update && \
 
 VOLUME ~/.config/goreleaser/
 
-COPY github_token /root/.config/goreleaser/github_token
+COPY entrypoint.sh /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["goreleaser"]
