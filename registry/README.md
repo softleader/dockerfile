@@ -39,6 +39,7 @@ registry:
     - /registry/auth:/auth
 ```
 
+Start your registry by issuing the following command in the directory containing the docker-compose.yml file:
 
 ```
 $ docker-compose up -d
