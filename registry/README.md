@@ -20,6 +20,8 @@ $ sh ./release.sh
 ## Start Registry using a Compose file on 192.168.1.88
 
 ```yaml
+# docker-compose.yml
+
 registry:
   restart: always
   image: softleader/registry
@@ -35,4 +37,9 @@ registry:
     - /repositories:/var/lib/registry
     - /registry/certs:/certs
     - /registry/auth:/auth
+```
+
+
+```
+$ docker-compose up -d
 ```
