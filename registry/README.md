@@ -23,20 +23,11 @@ $ sh ./release.sh
 # /registry/docker-compose.yml on 192.168.1.88
 
 registry:
-  restart: always
   image: softleader/registry
   ports:
-    - 5000:5000
-  environment:
-    REGISTRY_HTTP_TLS_CERTIFICATE: /certs/domain.crt
-    REGISTRY_HTTP_TLS_KEY: /certs/domain.key
-    REGISTRY_AUTH: htpasswd
-    REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd
-    REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm
+    - 127.0.0.1:5000:5000
   volumes:
     - /repositories:/var/lib/registry
-    - /registry/certs:/certs
-    - /registry/auth:/auth
 ```
 
 Start your registry by issuing the following command in the directory containing the `docker-compose.yml` file:
