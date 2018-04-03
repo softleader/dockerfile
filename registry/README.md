@@ -2,7 +2,7 @@
 
 SoftLeader registry
 
-```
+```sh
 # Pull from Docker Hub
 $ docker run \
     -d -p 5000:5000 --restart always --name registry \
@@ -16,6 +16,6 @@ $ docker run \
 
 ## Make a Release
 
-```
+```sh
 $ sh ./release.sh
 ```
