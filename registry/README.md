@@ -19,7 +19,7 @@ $ sh ./release.sh
 
 ## Start Registry using a Compose file on 192.168.1.88
 
-```
+```yaml
 registry:
   restart: always
   image: softleader/registry
