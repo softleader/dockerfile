@@ -20,7 +20,7 @@ $ sh ./release.sh
 ## Start Registry using a Compose file on 192.168.1.88
 
 ```yaml
-# docker-compose.yml
+# /registry/docker-compose.yml on 192.168.1.88
 
 registry:
   restart: always
