@@ -1,5 +1,9 @@
 # SoftLeader Base
 
+```
+$ docker pull softleader/base
+```
+
 ## Installed
 
 - Alpine Linux
