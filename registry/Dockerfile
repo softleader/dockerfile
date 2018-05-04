@@ -13,4 +13,7 @@ RUN apk update && \
 	&& rm -rf /var/cache/apk/* && \
 	ls /usr/share/zoneinfo && \
 	cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime && \
-	echo "Asia/Taipei" > /etc/timezone
+	echo "Asia/Taipei" > /etc/timezone && \
+	curl -L https://github.com/docker/compose/releases/download/1.21.0/docker-compose-$(uname -s)-$(uname -m) -o /docker-compose
+
+COPY docker-compose.yml /docker-compose.yml
