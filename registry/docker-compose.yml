@@ -3,5 +3,5 @@ registry:
   ports:
     - 5000:5000
   volumes:
-#    - <images-stores-path-on-host>:/var/lib/registry
+    - /repositories:/var/lib/registry
   restart: always
