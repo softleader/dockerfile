@@ -3,5 +3,5 @@ registry:
   ports:
     - 5000:5000
   volumes:
-    - /repositories:/var/lib/registry
+    - ./:/var/lib/registry
   restart: always
