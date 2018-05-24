@@ -7,7 +7,8 @@
 initial ApacheDS 的 instance 到 local 的位置
 
 ```shell
-$ docker run -it --rm -v "$(pwd)/apacheds-2.0.0-M24":/var/lib/apacheds-2.0.0-M24 --name apacheds \
+$ docker run -it --rm \
+    -v "$(pwd)/apacheds-2.0.0-M24":/var/lib/apacheds-2.0.0-M24 \
     softleader/ldap-server initial
 ```
 
