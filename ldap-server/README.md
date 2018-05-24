@@ -21,10 +21,10 @@ $ docker run -it --rm -v "$(pwd)/apacheds-2.0.0-M24":/var/lib/apacheds-2.0.0-M24
 
 ```shell
 $ docker run -itd \
-    -v "$(pwd)/apacheds-2.0.0-M24/default/partitions":/var/lib/apacheds-2.0.0-M24/default/partitions \
-    -p 10389:10389 --name apacheds \
-    --restart=always \
-    softleader/ldap-server start
+   -v "$(pwd)/apacheds-2.0.0-M24/default/partitions":/var/lib/apacheds-2.0.0-M24/default/partitions \
+   -p 10389:10389 \
+   --restart=always \
+   softleader/ldap-server start
 ```
 
 
