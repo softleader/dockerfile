@@ -1,4 +1,6 @@
-# SoftLeader ldap-server
+# [DEPRECATED] SoftLeader ldap-server
+
+請改使用 [hub.softleader.com.tw/apacheds](https://github.com/softleader/captain-kube/wiki/Installation)
 
 >  Quick start Ldap Server (ApacheDS)
 
