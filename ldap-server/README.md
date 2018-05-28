@@ -1,6 +1,6 @@
 # [DEPRECATED] SoftLeader ldap-server
 
-**這個 dockerfile 已經不再建議使用, 改請改用 [hub.softleader.com.tw/apacheds](https://github.com/softleader/captain-kube/wiki/Installation)**
+**這個 dockerfile 已經不再建議使用, 改請改用 [hub.softleader.com.tw/apacheds](https://github.com/softleader/apacheds/wiki)**
 
 ## How to use
 
