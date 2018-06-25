@@ -16,4 +16,5 @@ RUN apk update && \
 	&& echo "Asia/Taipei" > /etc/timezone 
 
 COPY .bashrc /root/.bashrc
-COPY docker-compose.yml /
+COPY docker-compose.yml /docker/
+COPY Dockerfile /docker/
