@@ -6,7 +6,6 @@ RUN apk update && \
 	apk --no-cache add \
 		bash \
 		vim \
-		htop \
 		tree \
 		curl \
 		procps \
