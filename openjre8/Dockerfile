@@ -1,4 +1,4 @@
-FROM alpine
+FROM openjdk:8-jre-alpine
 MAINTAINER softleader.com.tw
 
 # install packages & set timezone: https://wiki.alpinelinux.org/wiki/Setting_the_timezone
