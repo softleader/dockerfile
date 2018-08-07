@@ -17,7 +17,7 @@ if [[ -z "$chart" ]]; then
   exit 1;
 fi
 
-# Merge sit and client-a to values.yaml
+# Merge different environments values into values.yaml
 helm values $chart $values -o $chart || exit 1;
 
 # Filter out files in templates-dir and copy to tmp folder
