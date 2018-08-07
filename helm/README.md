@@ -10,11 +10,11 @@ Package SoftLeader Product for different environments and client:
 ```sh
 docker run --rm -it \
 	-v $(pwd):/data \
-	--entrypoint bash \
-	softleader/helm \
+	--entrypoint bash softleader/helm \
 	-c "curl https://raw.githubusercontent.com/softleader/dockerfile/master/helm/package | bash -s $1 $2 $3..."
 ```
 
+- `$(pwd)` - 當前目錄
 - `$1` - chart 位置
 - `$2之後` - 要 merge 的 values.yaml 位置 
 
@@ -41,8 +41,7 @@ docker run --rm -it \
 ```
 docker run --rm -it \
         -v $(pwd):/data \
-        --entrypoint bash \
-        softleader/helm \
+        --entrypoint bash softleader/helm \
         -c "curl https://raw.githubusercontent.com/softleader/dockerfile/master/helm/package | bash -s product/mychart myenv/uat.yaml myenv/client-a.yaml"
 ```
 
