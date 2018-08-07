@@ -32,7 +32,7 @@ echo "removing pack directory '$_pack'"
 rm -rf $_pack || exit 1;
 
 # Restore values.yaml from backup file
-echo "Restoring '$chart/values.yaml' from backup file '$chart/values.yaml.bak '"
+echo "restoring '$chart/values.yaml' from backup file '$chart/values.yaml.bak'"
 mv $chart/values.yaml.bak $chart/values.yaml || exit 1;
 
 exit 0;
