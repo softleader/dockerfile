@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-_pack=tmp
+_pack="tmp"
 chart=""
 values=""
 args=("$@")
@@ -28,11 +28,11 @@ helm filter $chart -o $_pack/$(dirname $chart) --overwrite-values || exit 1;
 helm package $_pack/$chart || exit 1;
 
 # Remove pack directory 
-echo "removing pack directory '$_pack'"
+echo "removing pack directory '$_pack'";
 rm -rf $_pack || exit 1;
 
 # Restore values.yaml from backup file
-echo "restoring '$chart/values.yaml' from backup file '$chart/values.yaml.bak'"
+echo "restoring '$chart/values.yaml' from backup file '$chart/values.yaml.bak'";
 mv $chart/values.yaml.bak $chart/values.yaml || exit 1;
 
 exit 0;
