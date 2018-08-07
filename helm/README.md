@@ -18,7 +18,7 @@ docker run --rm -it \
 - `$1` - chart 位置
 - `$2之後` - 要 merge 的 values.yaml 位置 
 
-### Examples
+### Example
 
 資料夾結構如下:
 
