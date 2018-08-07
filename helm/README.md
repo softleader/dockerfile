@@ -4,8 +4,7 @@
 $ docker pull softleader/helm
 ```
 
-## package.sh
-
+## Package
 Package SoftLeader Product for different environments and client:
 
 ```sh
