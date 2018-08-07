@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+_pack=tmp
 chart=""
 values=""
 args=("$@")
@@ -20,16 +21,18 @@ fi
 # Merge different environments values into values.yaml
 helm values $chart $values -o $chart || exit 1;
 
-# Filter out files in templates-dir and copy to tmp folder
-helm filter $chart -o tmp/$(dirname $chart) --overwrite-values || exit 1;
+# Filter out files in templates-dir and copy to pack directory
+helm filter $chart -o $_pack/$(dirname $chart) --overwrite-values || exit 1;
 
 # Pack chart archive
-helm package tmp/$chart || exit 1;
+helm package $_pack/$chart || exit 1;
 
-# Remove tmp folder 
-rm -rf tmp || exit 1;
+# Remove pack directory 
+echo "removing pack directory '$_pack'"
+rm -rf $_pack || exit 1;
 
 # Restore values.yaml from backup file
+echo "Restoring '$chart/values.yaml' from backup file '$chart/values.yaml.bak '"
 mv $chart/values.yaml.bak $chart/values.yaml || exit 1;
 
 exit 0;
