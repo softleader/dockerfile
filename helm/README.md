@@ -24,29 +24,25 @@ docker run --rm -it \
 
 ```sh
 .<在這邊下指令>
-├── mychart
-│   ├── Chart.yaml
-│   ├── charts
-│   ├── templates
-│   │   ├── NOTES.txt
-│   │   ├── _helpers.tpl
-│   │   ├── deployment.yaml
-│   │   ├── ingress.yaml
-│   │   └── service.yaml
-│   └── values.yaml
-└── myenv
-    ├── client-a.yaml
-    ├── sit.yaml
-    └── uat.yaml
+├── myenv
+│   ├── client-a.yaml
+│   ├── sit.yaml
+│   └── uat.yaml
+└── product
+    └── mychart
+        ├── Chart.yaml
+        ├── charts
+        ├── templates
+        └── values.yaml
 ```
 
 指令:
 
 ```
 docker run --rm -it \
-	-v $(pwd):/data \
-	--entrypoint bash \
-	softleader/helm \
-	-c "curl https://raw.githubusercontent.com/softleader/dockerfile/master/helm/package | bash -s mychart myenv/uat.yaml myenv/client-a.yaml"
+        -v $(pwd):/data \
+        --entrypoint bash \
+        softleader/helm \
+        -c "curl https://raw.githubusercontent.com/softleader/dockerfile/master/helm/package | bash -s product/mychart myenv/uat.yaml myenv/client-a.yaml"
 ```
 
