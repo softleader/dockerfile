@@ -21,7 +21,7 @@ fi
 helm values $chart $values -o $chart || exit 1;
 
 # Filter out files in templates-dir and copy to tmp folder
-helm filter $chart -o tmp/$(dirname $chart) || exit 1;
+helm filter $chart -o tmp/$(dirname $chart) --overwrite-values || exit 1;
 
 # Pack chart archive
 helm package tmp/$chart || exit 1;
