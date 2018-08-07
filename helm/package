@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-_pack=tmp
+_pack=_pack
 chart=""
 values=""
 args=("$@")
