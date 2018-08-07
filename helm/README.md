@@ -13,7 +13,7 @@ docker run --rm -it \
 	-v $(pwd):/data \
 	--entrypoint bash \
 	softleader/helm \
-	-c "curl https://raw.githubusercontent.com/softleader/dockerfile/master/helm/package.sh | bash -s $1 $2 $3..."
+	-c "curl https://raw.githubusercontent.com/softleader/dockerfile/master/helm/package | bash -s $1 $2 $3..."
 ```
 
 - `$1` - chart 位置
