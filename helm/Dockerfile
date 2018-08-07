@@ -2,13 +2,12 @@ FROM softleader/alpine
 MAINTAINER softleader.com.tw
 
 RUN apk update \
-		&& apk --no-cache add openssl \
+		&& apk --no-cache add openssl git \
 		&& rm -rf /var/cache/apk/* \
-		&& curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > get_helm.sh \
-		&& chmod 700 get_helm.sh \
-		&& ./get_helm.sh \
-		&& rm ./get_helm.sh \
-		&& helm init -c
+		&& curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash \
+		&& helm init -c \
+		&& helm plugin install https://github.com/shihyuho/helm-values \
+		&& helm plugin install https://github.com/softleader/helm-filter
 
 WORKDIR /data
 
