@@ -55,7 +55,7 @@ packChartArchive() {
 
 removePackDirectory () {
 	echo "removing pack directory '$_pack'";
-	m -rf $_pack 
+	rm -rf $_pack 
 }
 
 restoreValuesYaml() {
