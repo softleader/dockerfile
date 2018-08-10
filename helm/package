@@ -4,35 +4,82 @@ _pack="tmp"
 chart=""
 values=""
 args=("$@")
-for i in "${!args[@]}"; do 
-	if [ "$i" = "0" ]
-	then
-	    chart=${args[$i]}
-	else
-	    values="$values -f ${args[$i]}"
+
+initArgs() {
+	for i in "${!args[@]}"; do 
+		if [ "$i" = "0" ]
+		then
+			chart=${args[$i]}
+		else
+			values="$values -f ${args[$i]}"
+		fi
+	done
+}
+
+verifySupported() {
+	if [[ -z "$chart" ]]; then
+		echo "chart is required";
+		exit 1;
 	fi
-done
 
-if [[ -z "$chart" ]]; then
-  echo "chart is required";
-  exit 1;
-fi
+	if ! type "helm" > /dev/null; then
+		echo "helm is required"
+		echo "\tFor support, go to https://github.com/kubernetes/helm"
+		exit 1
+	fi
+	
+	if ! helm values --help > /dev/null 2>&1; then
+		echo "helm-values is required"
+		echo "\tFor support, go to https://github.com/shihyuho/helm-values"
+		exit 1
+	fi
 
-# Merge different environments values into values.yaml
-helm values $chart $values -o $chart || exit 1;
+	if ! helm filter --help > /dev/null 2>&1; then
+		echo "helm-filter is required"
+		echo "\tFor support, go to https://github.com/softleader/helm-filter"
+		exit 1
+	fi
+}
 
-# Filter out files in templates-dir and copy to pack directory
-helm filter $chart -o $_pack/$(dirname $chart) --overwrite-values || exit 1;
+mergeValues() {
+	helm values $chart $values -o $chart
+}
 
-# Pack chart archive
-helm package $_pack/$chart || exit 1;
+filterOutTemplateFiles() {
+	helm filter $chart -o $_pack/$(dirname $chart) --overwrite-values
+}
 
-# Remove pack directory 
-echo "removing pack directory '$_pack'";
-rm -rf $_pack || exit 1;
+packChartArchive() {
+	helm package $_pack/$chart 	
+}
 
-# Restore values.yaml from backup file
-echo "restoring '$chart/values.yaml' from backup file '$chart/values.yaml.bak'";
-mv $chart/values.yaml.bak $chart/values.yaml || exit 1;
+removePackDirectory () {
+	echo "removing pack directory '$_pack'";
+	m -rf $_pack 
+}
 
-exit 0;
+restoreValuesYaml() {
+	echo "restoring '$chart/values.yaml' from backup file '$chart/values.yaml.bak'";
+	mv $chart/values.yaml.bak $chart/values.yaml 
+}
+
+fail_trap() {
+  result=$?
+  if [ "$result" != "0" ]; then
+    echo "Failed to install $chart"
+  fi
+  exit $result
+}
+
+# Execution
+
+#Stop execution on any error
+trap "fail_trap" EXIT
+set -e
+initArgs
+verifySupported
+mergeValues
+filterOutTemplateFiles
+packChartArchive
+removePackDirectory
+restoreValuesYaml
