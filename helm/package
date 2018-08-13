@@ -39,6 +39,9 @@ verifySupported() {
 		echo "\tFor support, go to https://github.com/softleader/helm-filter"
 		exit 1
 	fi
+	
+	echo $chart;
+	echo $values;
 }
 
 mergeValues() {
