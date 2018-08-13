@@ -40,19 +40,22 @@ verifySupported() {
 		exit 1
 	fi
 	
-	echo $chart;
-	echo $values;
+	#echo $chart;
+	#echo $values;
 }
 
 mergeValues() {
+	echo "merging '$values' to $chart";
 	helm values $chart $values -o $chart
 }
 
 filterOutTemplateFiles() {
+	echo "filtering out template files";
 	helm filter $chart -o $_pack/$(dirname $chart) --overwrite-values
 }
 
 packChartArchive() {
+	echo "packaging chart archive";
 	helm package $_pack/$chart 	
 }
 
