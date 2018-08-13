@@ -45,17 +45,17 @@ verifySupported() {
 }
 
 mergeValues() {
-	echo "merging '$values' to $chart";
+	#echo "merging '$values' to $chart";
 	helm values $chart $values -o $chart
 }
 
 filterOutTemplateFiles() {
-	echo "filtering out template files";
+	#echo "filtering out template files";
 	helm filter $chart -o $_pack/$(dirname $chart) --overwrite-values
 }
 
 packChartArchive() {
-	echo "packaging chart archive";
+	#echo "packaging chart archive";
 	helm package $_pack/$chart 	
 }
 
