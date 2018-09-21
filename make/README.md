@@ -8,10 +8,16 @@ $ docker pull softleader/make
 
 ## Usage
 
-- windows:
+- windows-cmd:
 
 ```sh
 $ docker run -it --rm -v "%cd%":/data softleader/make
+```
+
+- windows-powershell:
+
+```sh
+$ docker run -it --rm -v ${pwd}:/data softleader/make
 ```
 
 - unix:
