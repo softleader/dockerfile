@@ -2,7 +2,7 @@ FROM softleader/alpine
 MAINTAINER softleader.com.tw
 
 RUN apk update \
-		&& apk --no-cache add openssl git \
+		&& apk --no-cache add openssl git make \
 		&& rm -rf /var/cache/apk/* \
 		&& curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash \
 		&& helm init -c \
