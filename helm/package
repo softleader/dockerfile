@@ -62,7 +62,11 @@ packChartArchive() {
 
 removePackDirectory () {
 	echo "removing pack directory '$_pack'";
-	rm -rf $_pack 
+	cd $_pack
+	rm -rf */templates/*
+	rm -rf */*
+	cd ..
+	rm -rf $_pack
 }
 
 restoreValuesYaml() {
