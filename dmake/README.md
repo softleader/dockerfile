@@ -11,17 +11,17 @@ $ docker pull softleader/dmake
 - windows-cmd:
 
 ```sh
-$ docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock -v "%cd%":/data softleader/dmake
+$ docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock -v "%cd%":/data softleader/dmake <target>
 ```
 
 - windows-powershell:
 
 ```sh
-$ docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock -v ${pwd}:/data softleader/dmake
+$ docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock -v ${pwd}:/data softleader/dmake <target>
 ```
 
 - unix:
 
 ```sh
-$ docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock -v "$(pwd)":/data softleader/dmake
+$ docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock -v "$(pwd)":/data softleader/dmake <target>
 ```
