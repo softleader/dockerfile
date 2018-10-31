@@ -11,17 +11,17 @@ $ docker pull softleader/make
 - windows-cmd:
 
 ```sh
-$ docker run -it --rm -v "%cd%":/data softleader/make
+$ docker run -it --rm -v "%cd%":/data softleader/make <target>
 ```
 
 - windows-powershell:
 
 ```sh
-$ docker run -it --rm -v ${pwd}:/data softleader/make
+$ docker run -it --rm -v ${pwd}:/data softleader/make <target>
 ```
 
 - unix:
 
 ```sh
-$ docker run -it --rm -v "$(pwd)":/data softleader/make
+$ docker run -it --rm -v "$(pwd)":/data softleader/make <target>
 ```
