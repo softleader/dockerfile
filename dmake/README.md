@@ -6,6 +6,8 @@ $ docker pull softleader/dmake
 
 > 讓 windows 系統的使用者也可以不用額外安裝或設定就可以使用 make 指令, 並且可以在 make 中操作本機的 docker
 
+另外推薦先參考 [make-go](https://github.com/softleader/make-go)
+
 ## Usage
 
 - windows-cmd:
