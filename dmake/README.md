@@ -1,6 +1,6 @@
 # SoftLeader Docker & Make
 
-此 image 推薦給不想額外安裝程式就可以使用 make 指令, 並且可以在 make 中操作本機的 docker 的使用者
+此 image 推薦給不想額外安裝程式就要可以使用 make 指令, 並且可以在 make 中操作本機的 docker 的使用者
 
 ```sh
 $ docker pull softleader/dmake
