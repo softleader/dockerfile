@@ -9,6 +9,6 @@ RUN apk update \
     && echo "Asia/Taipei" > /etc/timezone \
     && apk del tzdata
 
-COPY .bashrc /.bashrc
+COPY .bashrc /root/.bashrc
 
 VOLUME /logs
