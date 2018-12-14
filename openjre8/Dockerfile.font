@@ -1,0 +1,7 @@
+FROM softleader/openjre8
+MAINTAINER softleader.com.tw
+
+# install packages fontconfig, and add font:ttf-dejavu
+RUN apk update \
+    && apk --update add fontconfig ttf-dejavu \
+    && rm -rf /var/cache/apk/*
