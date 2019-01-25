@@ -1,4 +1,21 @@
-# softleader/redis:protected
+# [DEPRECATED] softleader/redis:protected
+此用此 image 將會造成外部系統無法法問 redis
+應於redis啟動時設定密碼, 並在相對應的系統設定密碼以具有使用權限
+
+- `docker-compose.yml`
+    ```
+    redis:
+      image: 'redis:alpine'
+      command: redis-server --requirepass your_password
+    ```
+
+- `bootstrap.yml`
+    ```
+    spring:
+      redis:
+        host: localhost
+        password: your_password
+    ```
 
 ## How to use
 
