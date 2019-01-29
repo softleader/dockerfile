@@ -29,7 +29,7 @@ RUN mkdir -p /tmp $SL_HOME $SL_DUMPS $SL_LOGS \
 
 # "/tmp" is where a Spring Boot application creates working directories for Tomcat by default.
 # "$SL_DUMPS" is where the directories keeps heap dump files
-# "$SL_LOGS" is where the SpringBoot logfile (../logs/bootstrap.log) stores
+# "$SL_LOGS" is where the Spring Boot application logfile stores. (../logs/bootstrap.log)
 VOLUME /tmp $SL_DUMPS $SL_LOGS
 
 COPY .bashrc $SL_HOME/.bashrc
