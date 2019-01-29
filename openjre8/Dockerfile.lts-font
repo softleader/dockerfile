@@ -1,0 +1,37 @@
+FROM openjdk:8-jre-alpine
+MAINTAINER softleader.com.tw
+
+# install packages & set timezone: https://wiki.alpinelinux.org/wiki/Setting_the_timezone
+RUN apk update \
+    && apk --no-cache add bash vim curl tzdata fontconfig ttf-dejavu \
+    && rm -rf /var/cache/apk/* \
+    && cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime \
+    && echo "Asia/Taipei" > /etc/timezone \
+    && apk del tzdata
+
+ARG user=softleader
+ARG group=softleader
+ARG uid=1000
+ARG gid=1000
+ARG SL_HOME=/var/softleader_home
+
+ENV SL_HOME $SL_HOME
+ENV SL_DUMPS $SL_HOME/dumps
+
+# SoftLeader Apps is run with user `softleader`, uid = 1000
+# If you bind mount a volume from the host or a data container,
+# ensure you use the same uid
+RUN mkdir -p /tmp $SL_HOME $SL_DUMPS \ 
+  && chown -R ${uid}:${gid} /tmp $SL_HOME \
+  && addgroup -g ${gid} ${group} \
+  && adduser -h "$SL_HOME" -u ${uid} -G ${group} -s /bin/bash -D ${user}
+
+# "/tmp" is where a Spring Boot application creates working directories for Tomcat by default.
+# "$SL_DUMPS" is where the directories keeps heap dump files
+VOLUME /tmp $SL_DUMPS
+
+COPY .bashrc $SL_HOME/.bashrc
+
+WORKDIR $SL_HOME
+
+USER ${user}
