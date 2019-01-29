@@ -10,7 +10,7 @@
 - *softleader/openjre8:lts* - Long Term Supports OpenJDK 8 image.
 - *softleader/openjre8:lts-font* - Long Term Supports OpenJDK 8 image for softleader/openjre8:font 
 
-### LTS images
+### LTS
 
 LTS image 會被 SoftLeader 長期維護, 並以符合各家客戶 Production 考量來調整 Image 內容, LTS 使用以下權限執行 container, 如果有 mount host volume, 請確保 host volume 使用相同的 uid:
 
