@@ -21,8 +21,8 @@ LTS image 會被 SoftLeader 長期維護, 並以符合各家客戶 Production �
 
 啟動 container 時以下目錄均已事先 grant 好權限給 softleader group, 請將 app 的任何 file systems 寫出都放置在以下目錄中
 
-- */var/softleader_home* ($SL_HOME) - home directory for softleader user.
-- */var/softleader_home/dumps* ($SL_DUMPS) - where the directory keeps heap dump files.
+- */var/softleader_home* - home directory for softleader user. (`$SL_HOME`)
+- */var/softleader_home/dumps* - where the directory keeps heap dump files. (`$SL_DUMPS`)
 - */tmp* - where a Spring Boot application creates working directory for Tomcat by default.
 
 #### Example Dockerfile for SoftLeader App
