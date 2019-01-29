@@ -4,6 +4,9 @@
 
 - *softleader/openjre8* - OpenJDK8 base image with root user, useful for developer testing environments.
 - *softleader/openjre8:font* - OpenJDK 8 base runtime image w/ root user and fonts
+
+---
+
 - *softleader/openjre8:lts* - Long Term Supports OpenJDK 8 image.
 - *softleader/openjre8:lts-font* - Long Term Supports OpenJDK 8 image for softleader/openjre8:font 
 
