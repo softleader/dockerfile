@@ -12,7 +12,7 @@
 
 ### LTS
 
-LTS image 會被 SoftLeader 長期維護, 並以符合各家客戶 Production 考量來調整 Image 內容, LTS 使用以下權限執行 container, 如果有 mount host volume, 請確保 host volume 使用相同的 uid:
+LTS image 會被 SoftLeader 長期維護, 並以符合各家客戶 Production 考量來調整 Image 內容, LTS 使用以下權限執行 container
 
 - user - softleader
 - uid - 1000
@@ -25,6 +25,8 @@ LTS image 會被 SoftLeader 長期維護, 並以符合各家客戶 Production �
 - */var/softleader_home/dumps* - where the directory keeps heap dump files. (`$SL_DUMPS`)
 - */var/softleader_home/logs* - where the Spring Boot application logfile stores. (../logs/bootstrap.log)
 - */tmp* - where a Spring Boot application creates working directory for Tomcat by default.
+
+> 如果有 mount host volume 不再上述清單內的, 請確保 host volume 使用相同的 uid
 
 #### Example Dockerfile for SoftLeader App
 
