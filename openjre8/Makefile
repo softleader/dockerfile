@@ -1,5 +1,5 @@
 IMAGE?=softleader/openjre8
-BUILD_ENV?=IMAGE?=softleader/openjdk8
+BUILD_ENV?=softleader/openjdk8
 
 all: build push
 
