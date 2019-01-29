@@ -50,7 +50,7 @@ CMD ["java $HEAP_DUMP$HEAP_DUMP_FILE $JAVA_OPTS $DEVOPS_OPTS $ENTROPY_SOURCE $SL
 in your *application.properties*:
 
 ```properties
-some.path.for.my.app=${SL_HOME:/}some/path/for/my/app
+some.path.for.my.app=${SL_HOME}/some/path/for/my/app
 ```
 
 ### Migrate from ROOT user base image to LTS image
