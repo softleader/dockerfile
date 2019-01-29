@@ -36,11 +36,12 @@ ENV HEAP_DUMP_FILE=""
 ENV HEAP_DUMP="-XX:+ExitOnOutOfMemoryError -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=$SL_DUMPS"
 ENV SPRING_PROFILES_ACTIVE=docker,sit,schedule
 ENV JAVA_OPTS="-Dsoftleader.boot.failFast=true -Xmx512m -Xmx512m -Dspring.profiles.active=$SPRING_PROFILES_ACTIVE"
+ENV ENTROPY_SOURCE=-Djava.security.egd=file:/dev/./urandom
 ENV DEVOPS_OPTS=""
 
 COPY target/app.jar $SL_HOME/app.jar
 
-ENTRYPOINT [ "sh", "-c", "java $HEAP_DUMP$HEAP_DUMP_FILE $JAVA_OPTS $DEVOPS_OPTS -Djava.security.egd=file:/dev/./urandom -jar $SL_HOME/app.jar" ]
+ENTRYPOINT [ "sh", "-c", "java $HEAP_DUMP$HEAP_DUMP_FILE $JAVA_OPTS $DEVOPS_OPTS $ENTROPY_SOURCE $SL_HOME/app.jar" ]
 ```
 
 ## Build Env 
