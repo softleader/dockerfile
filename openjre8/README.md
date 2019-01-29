@@ -23,7 +23,7 @@ LTS image 會被 SoftLeader 長期維護, 並以符合各家客戶 Production �
 
 - */var/softleader_home* - home directory for softleader user. (`$SL_HOME`)
 - */var/softleader_home/dumps* - where the directory keeps heap dump files. (`$SL_DUMPS`)
-- */var/softleader_home/logs* - where the Spring Boot application logfile stores. (../logs/bootstrap.log)
+- */var/softleader_home/logs* - where the Spring Boot application logfile stores. (../logs/bootstrap.log) (`$SL_LOGS`)
 - */tmp* - where a Spring Boot application creates working directory for Tomcat by default.
 
 > 如果有 mount host volume 到 container 不在以上所列出的目錄內的, 請確保 host volume 使用相同的 uid
@@ -44,7 +44,7 @@ ENV DEVOPS_OPTS=""
 
 COPY target/app.jar $SL_HOME/app.jar
 
-ENTRYPOINT [ "sh", "-c", "java $HEAP_DUMP$HEAP_DUMP_FILE $JAVA_OPTS $DEVOPS_OPTS $ENTROPY_SOURCE $SL_HOME/app.jar" ]
+CMD ["java $HEAP_DUMP$HEAP_DUMP_FILE $JAVA_OPTS $DEVOPS_OPTS $ENTROPY_SOURCE $SL_HOME/app.jar"]
 ```
 
 in your *application.properties*:
