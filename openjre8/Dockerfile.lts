@@ -17,18 +17,20 @@ ARG SL_HOME=/var/softleader_home
 
 ENV SL_HOME $SL_HOME
 ENV SL_DUMPS $SL_HOME/dumps
+ENV SL_LOGS $SL_HOME/logs
 
 # SoftLeader Apps is run with user `softleader`, uid = 1000
 # If you bind mount a volume from the host or a data container,
 # ensure you use the same uid
-RUN mkdir -p /tmp $SL_HOME $SL_DUMPS \ 
+RUN mkdir -p /tmp $SL_HOME $SL_DUMPS $SL_LOGS \ 
   && chown -R ${uid}:${gid} /tmp $SL_HOME \
   && addgroup -g ${gid} ${group} \
   && adduser -h "$SL_HOME" -u ${uid} -G ${group} -s /bin/bash -D ${user}
 
 # "/tmp" is where a Spring Boot application creates working directories for Tomcat by default.
 # "$SL_DUMPS" is where the directories keeps heap dump files
-VOLUME /tmp $SL_DUMPS
+# "$SL_LOGS" is where the SpringBoot logfile (../logs/bootstrap.log) stores
+VOLUME /tmp $SL_DUMPS $SL_LOGS
 
 COPY .bashrc $SL_HOME/.bashrc
 
