@@ -23,7 +23,7 @@ LTS image 會被 SoftLeader 長期維護, 並以符合各家客戶 Production �
 
 - */var/softleader_home* - home directory for softleader user. (`$SL_HOME`)
 - */var/softleader_home/dumps* - where the directory keeps heap dump files. (`$SL_DUMPS`)
-- **
+- */var/softleader_home/logs* - where the Spring Boot application logfile stores. (../logs/bootstrap.log)
 - */tmp* - where a Spring Boot application creates working directory for Tomcat by default.
 
 #### Example Dockerfile for SoftLeader App
