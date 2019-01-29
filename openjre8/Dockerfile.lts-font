@@ -1,4 +1,4 @@
-FROM openjdk:8-jre-alpine:lts
+FROM softleader/openjre8:lts
 MAINTAINER softleader.com.tw
 
 RUN apk update \
