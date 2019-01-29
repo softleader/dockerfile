@@ -55,7 +55,7 @@ some.path.for.my.app=${SL_HOME:/}some/path/for/my/app
 
 ### Migrate from ROOT user base image to LTS image
 
-點擊 [Wiki: 從 Root user base image 升級到 LTS image](https://github.com/softleader/softleader-microservice-wiki/wiki/Migrate-from-ROOT-user-base-image-to-LTS-image)
+Click [Wiki: Migrate from ROOT user base image to LTS image](https://github.com/softleader/softleader-microservice-wiki/wiki/Migrate-from-ROOT-user-base-image-to-LTS-image) to see more details.
 
 ## Build Env 
 
