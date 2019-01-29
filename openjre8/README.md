@@ -26,7 +26,7 @@ LTS image 會被 SoftLeader 長期維護, 並以符合各家客戶 Production �
 - */var/softleader_home/logs* - where the Spring Boot application logfile stores. (../logs/bootstrap.log)
 - */tmp* - where a Spring Boot application creates working directory for Tomcat by default.
 
-> 如果有 mount host volume 不再上述清單內的, 請確保 host volume 使用相同的 uid
+> 如果有 mount host volume 到 container 不在以上所列出的目錄內的, 請確保 host volume 使用相同的 uid
 
 #### Example Dockerfile for SoftLeader App
 
