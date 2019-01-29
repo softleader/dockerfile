@@ -33,7 +33,7 @@ LTS image 會被 SoftLeader 長期維護, 並以符合各家客戶 Production �
 ```
 FROM softleader/openjre8:lts
 
-VOLUME $SL_HOME/exchange/export
+VOLUME $SL_HOME/some/path/for/my/app
 
 ENV HEAP_DUMP_FILE=""
 ENV HEAP_DUMP="-XX:+ExitOnOutOfMemoryError -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=$SL_DUMPS"
@@ -50,7 +50,7 @@ CMD ["java $HEAP_DUMP$HEAP_DUMP_FILE $JAVA_OPTS $DEVOPS_OPTS $ENTROPY_SOURCE $SL
 in your *application.properties*:
 
 ```properties
-exchange.export.path=${SL_HOME:/}exchange/export
+some.path.for.my.app=${SL_HOME:/}some/path/for/my/app
 ```
 
 ## Build Env 
