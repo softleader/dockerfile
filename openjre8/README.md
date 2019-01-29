@@ -12,18 +12,18 @@
 
 ### LTS images
 
-LTS image 使用以下權限執行 container, 如果有 mount host volume, 請確保 host volume 使用相同的 uid:
+LTS image 會被 SoftLeader 長期維護, 並以符合各家客戶 Production 考量來調整 Image 內容, LTS 使用以下權限執行 container, 如果有 mount host volume, 請確保 host volume 使用相同的 uid:
 
 - user - softleader
 - uid - 1000
 - group - softleader
 - gid - 1000
 
-在 LTS 中以下目錄均以事先 grant 好權限給 softleader group
+啟動 container 時以下目錄均已事先 grant 好權限給 softleader group, 請將 app 的任何 file systems 寫出都放置在以下目錄中
 
 - */var/softleader_home* ($SL_HOME) - home directory for softleader user.
 - */var/softleader_home/dumps* ($SL_DUMPS) - where the directory keeps heap dump files.
-- */tmp* - where a Spring Boot application creates working directory for Tomcat by default. 
+- */tmp* - where a Spring Boot application creates working directory for Tomcat by default.
 
 ## Build Env 
 
