@@ -15,12 +15,7 @@ add_softleader_user_group() {
 	adduser -h "$SL_HOME" -u ${_uid} -G ${_group} -s /bin/bash -D ${_user}
 }
 
-switch_user() {
-	su ${_user}
-}
-
 change_ownership_of_sl_home
 add_softleader_user_group
-switch_user
 
-exec "$@"
+exec su - ${_user} -c "$@"
