@@ -18,7 +18,7 @@ build-env:
 
 .PHONY: lts
 lts:
-	docker push ${IMAGE}:lts
-	docker push ${IMAGE}:lts-font
 	docker build -f ./Dockerfile.lts -t ${IMAGE}:lts .
 	docker build -f ./Dockerfile.lts-font -t ${IMAGE}:lts-font .
+	docker push ${IMAGE}:lts
+	docker push ${IMAGE}:lts-font
