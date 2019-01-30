@@ -19,9 +19,10 @@ LTS image 會被 SoftLeader 長期維護, 會持續以符合各家客戶 Product
 - group - softleader
 - gid - 1000
 
-上述變數都可以在 container 啟動時加以調整, 只要在你想要調整的變數前面加上底線即可, 例如你想要調整 user 成 hello, uid 成 1001:
+上述變數都可以在 container 啟動時加以調整, 只要在你想要調整的變數前面加上底線即可:
 
-```
+```sh
+# 例如你想要調整 user 成 hello, uid 成 1001:
 $ docker run -it -e '_uid=1001' -e '_user=hello' softleader/openjre8:lts id
 uid=1001(hello) gid=1000(softleader) groups=1000(softleader),1000(softleader)
 ```
