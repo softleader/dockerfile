@@ -12,7 +12,7 @@
 
 ### LTS
 
-LTS image 會被 SoftLeader 長期維護, 並以符合各家客戶 Production 考量來調整 Image 內容, LTS 使用以下權限執行 container
+LTS image 會被 SoftLeader 長期維護, 會持續以符合各家客戶 Production 考量來調整 Image 內容, LTS 使用以下權限執行 container
 
 - user - softleader
 - uid - 1000
