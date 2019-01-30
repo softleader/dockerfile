@@ -1,4 +1,4 @@
-# SoftLeader Base [Deprecated]
+# [Deprecated] SoftLeader Base
 
 請不要再使, 應選擇命名更明確的基底 image, 如: `softleader/openjre8`
 
