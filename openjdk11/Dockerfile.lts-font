@@ -1,0 +1,7 @@
+FROM softleader/openjdk11:lts
+MAINTAINER softleader.com.tw
+
+RUN apk update \
+    && apk --no-cache add fontconfig ttf-dejavu \
+    && rm -rf /var/cache/apk/* 
+
