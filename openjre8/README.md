@@ -26,7 +26,7 @@ $ docker run -it -e '_uid=1001' -e '_user=hello' softleader/openjre8:lts id
 uid=1001(hello) gid=1000(softleader) groups=1000(softleader),1000(softleader)
 ```
 
-每次在啟動 container 時, image 中的 `/entrypoint.sh` 會將以下目錄 grant 好權限p, 因此請將 app 的任何 file systems 寫出都放置在以下目錄中:
+每次在啟動 container 時, image 中的 `/entrypoint.sh` 會將以下目錄 grant 好權限, 因此請將 app 的任何 file systems 寫出都放置在以下目錄中:
 
 - */var/softleader_home* - home directory for softleader user. (`$SL_HOME`)
 - */var/softleader_home/dumps* - where the directory keeps heap dump files. (`$SL_DUMPS`)
