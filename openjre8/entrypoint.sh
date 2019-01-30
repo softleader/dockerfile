@@ -18,4 +18,4 @@ add_softleader_user_group() {
 change_ownership_of_sl_home
 add_softleader_user_group
 
-exec su ${_user} -c "$@"
+exec su ${_user} -c "$*"
