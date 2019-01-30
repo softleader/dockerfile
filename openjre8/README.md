@@ -19,7 +19,14 @@ LTS image 會被 SoftLeader 長期維護, 會持續以符合各家客戶 Product
 - group - softleader
 - gid - 1000
 
-啟動 container 時以下目錄均已事先 grant 好權限給 softleader group, 請將 app 的任何 file systems 寫出都放置在以下目錄中:
+上述變數都可以在 container 啟動時加以調整, 只要在你想要調整的變數前面加上底線即可, 例如你想要調整 user 成 hello, uid 成 1001:
+
+```
+$ docker run -it -e '_uid=1001' -e '_user=hello' softleader/openjre8:lts id
+uid=1001(hello) gid=1000(softleader) groups=1000(softleader),1000(softleader)
+```
+
+每次在啟動 container 時, image 中的 `/entrypoint.sh` 會將以下目錄 grant 好權限p, 因此請將 app 的任何 file systems 寫出都放置在以下目錄中:
 
 - */var/softleader_home* - home directory for softleader user. (`$SL_HOME`)
 - */var/softleader_home/dumps* - where the directory keeps heap dump files. (`$SL_DUMPS`)
