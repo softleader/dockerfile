@@ -23,6 +23,7 @@ ENV SL_LOGS $SL_HOME/logs
 VOLUME /tmp $SL_DUMPS $SL_LOGS
 
 COPY .bashrc $SL_HOME/.bashrc
+COPY .bashrc /root/.bashrc
 COPY entrypoint.sh /entrypoint.sh
 
 WORKDIR $SL_HOME
