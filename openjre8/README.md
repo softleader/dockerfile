@@ -28,7 +28,7 @@ LTS image 會被 SoftLeader 長期維護, 會持續以符合各家客戶 Product
 
 > 如果有 mount host volume 到 container 不在以上所列出的目錄內的, 請確保 host volume 使用相同的 uid
 
-#### Example Dockerfile for SoftLeader App
+#### Example Dockerfile of SoftLeader App
 
 ```
 FROM softleader/openjre8:lts
