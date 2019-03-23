@@ -27,5 +27,9 @@ if [[ $1 == "deletedn" ]]; then
 	ldapdelete -v -h $HOST -p $PORT -c -x -D $BINDDN -w $PASSWD $*
 fi
 
+# search
+if [[ $1 == "search" ]]; then
+	ldapsearch -v -h $HOST -p $PORT -x -D $BINDDN -w $PASSWD -b $2
+fi
 
 exit 0

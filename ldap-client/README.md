@@ -59,6 +59,12 @@ $ docker run -it --rm -e NEWPASSWD=${your new password} softleader/ldap-client c
 docker run -it --rm softleader/ldap-client deletedn dc=softleader,dc=example,dc=com ...
 ```
 
+**Search:**
+
+```sh
+docker run -it --rm softleader/ldap-client search dc=softleader,dc=example,dc=com
+```
+
 ### -e
 
 - `FILE` - read operations from file (**REQUIRED**)
@@ -76,3 +82,8 @@ docker run -it --rm softleader/ldap-client deletedn dc=softleader,dc=example,dc=
 $ docker run -it --rm -e HOST=softleader.com.tw -e PORT=10388 -v "$(pwd)":/data softleader/ldap-client createdn
 ```
 
+查詢公司的 `Ldap Server`
+
+```
+$ docker run -it --rm -e HOST=softleader.com.tw -e PORT=10388 softleader/ldap-client search dc=softleader,dc=example,dc=com
+```
