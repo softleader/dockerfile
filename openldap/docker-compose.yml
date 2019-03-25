@@ -5,7 +5,7 @@ services:
     environment:
       LDAP_LOG_LEVEL: "256"
       LDAP_ORGANISATION: "SoftLeader"
-      LDAP_DOMAIN: "softleader.com.tw"
+      LDAP_DOMAIN: "exmaple.com"
       LDAP_BASE_DN: ""
       LDAP_ADMIN_PASSWORD: "secret"
       LDAP_CONFIG_PASSWORD: "config"
@@ -14,6 +14,7 @@ services:
       LDAP_BACKEND: "mdb"
       LDAP_TLS: "false"
       LDAP_REPLICATION: "false"
+      KEEP_EXISTING_CONFIG: "true"
     volumes:
       - ./data:/var/lib/ldap
       - ./config:/etc/ldap/slapd.d
