@@ -10,5 +10,3 @@ RUN apk update \
     && apk del tzdata
 
 COPY .bashrc /root/.bashrc
-
-VOLUME /logs

@@ -2,7 +2,7 @@ IMAGE?=softleader/openjre8
 BUILD_ENV?=softleader/openjdk8
 
 .PHONY: all
-all: latest build push
+all: latest build-env lts
 
 .PHONY: latest
 latest:
