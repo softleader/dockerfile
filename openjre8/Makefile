@@ -2,7 +2,7 @@ IMAGE?=softleader/openjre8
 BUILD_ENV?=softleader/openjdk8
 
 .PHONY: all
-all: latest build-env lts
+all: latest build-env lts grpc
 
 .PHONY: latest
 latest:
@@ -22,3 +22,8 @@ lts:
 	docker build -f ./Dockerfile.lts-font -t ${IMAGE}:lts-font .
 	docker push ${IMAGE}:lts
 	docker push ${IMAGE}:lts-font
+
+.PHONY: grpc
+grpc:
+	docker build -f ./Dockerfile.grpc -t ${IMAGE}:grpc .
+	docker push ${IMAGE}:grpc
