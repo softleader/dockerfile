@@ -1,0 +1,14 @@
+FROM openjdk:8-alpine
+MAINTAINER softleader.com.tw
+
+# install packages & set timezone: https://wiki.alpinelinux.org/wiki/Setting_the_timezone
+RUN apk update \
+    && apk --no-cache add bash ca-certificates wget tzdata maven \
+    && wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub \
+    && wget -q https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.29-r0/glibc-2.29-r0.apk \
+    && apk add glibc-2.29-r0.apk \
+    && rm -rf /var/cache/apk/* \
+    && cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime \
+    && echo "Asia/Taipei" > /etc/timezone \
+    && rm /etc/apk/keys/sgerrand.rsa.pub \
+    && apk del ca-certificates wget tzdata
