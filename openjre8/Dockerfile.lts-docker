@@ -1,0 +1,5 @@
+FROM softleader/docker
+MAINTAINER softleader.com.tw
+
+# install java, maven
+RUN apk --no-cache add openjdk8
