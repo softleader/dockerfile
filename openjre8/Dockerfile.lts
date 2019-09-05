@@ -20,6 +20,7 @@ ENV SL_LOGS $SL_HOME/logs
 COPY .bashrc $SL_HOME/.bashrc
 COPY .bashrc /root/.bashrc
 COPY entrypoint.sh /entrypoint.sh
+COPY ensure-config-server.sh /ensure-config-server.sh
 
 WORKDIR $SL_HOME
 
