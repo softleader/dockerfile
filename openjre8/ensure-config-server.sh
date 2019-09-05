@@ -7,6 +7,7 @@ if test "$retval" != "0"; then
     for i in $(seq $END);
     do
       sleep 1
+      # 由於 alpine 的 seq 只能從小到大,  所以這邊用減的
       echo $(($END - $i))
     done
    exit $retval
