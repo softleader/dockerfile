@@ -60,8 +60,8 @@ filterOutTemplateFiles() {
 
 packChartArchive() {
 	#echo "packaging chart archive";
-	helm lint --strict $_pack/$chart-env
-	helm package $_pack/$chart-env
+	helm lint --strict $_pack/$chart
+	helm package $_pack/$chart-$env
 }
 
 removePackDirectory () {
