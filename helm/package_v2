@@ -3,7 +3,6 @@
 _pack="tmp"
 chart=""
 env=""
-build=build-$env
 values=""
 args=("$@")
 
@@ -62,8 +61,8 @@ filterOutTemplateFiles() {
 packChartArchive() {
 	#echo "packaging chart archive";
 	helm lint --strict $_pack/$chart
-	mkdir $build
-	helm package $_pack/$chart -d ./$build
+	mkdir build-$env
+	helm package $_pack/$chart -d ./build-$env
 }
 
 removePackDirectory () {
