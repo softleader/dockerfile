@@ -1,0 +1,100 @@
+#!/usr/bin/env bash
+
+_pack="tmp"
+chart=""
+env=""
+values=""
+args=("$@")
+
+initArgs() {
+	for i in "${!args[@]}"; do 
+		if [ "$i" = "0" ]
+		then
+			chart=${args[$i]}
+		elif [ "$i" = "1" ]
+		then
+			env=${args[$i]}
+		else
+			values="$values -f ${args[$i]}"
+		fi
+	done
+}
+
+verifySupported() {
+	if [[ -z "$chart" ]]; then
+		echo "chart is required";
+		exit 1;
+	fi
+
+	if ! type "helm" > /dev/null; then
+		echo "helm is required"
+		echo "\tFor support, go to https://github.com/kubernetes/helm"
+		exit 1
+	fi
+	
+	if ! helm values --help > /dev/null 2>&1; then
+		echo "helm-values is required"
+		echo "\tFor support, go to https://github.com/shihyuho/helm-values"
+		exit 1
+	fi
+
+	if ! helm filter --help > /dev/null 2>&1; then
+		echo "helm-filter is required"
+		echo "\tFor support, go to https://github.com/softleader/helm-filter"
+		exit 1
+	fi
+	
+	#echo $chart;
+	#echo $values;
+}
+
+mergeValues() {
+	#echo "merging '$values' to $chart";
+	helm values $chart $values -o $chart
+}
+
+filterOutTemplateFiles() {
+	#echo "filtering out template files";
+	helm filter $chart -o $_pack/$(dirname $chart) --overwrite-values
+}
+
+packChartArchive() {
+	#echo "packaging chart archive";
+	helm lint --strict $_pack/$chart-env
+	helm package $_pack/$chart-env
+}
+
+removePackDirectory () {
+	echo "removing pack directory '$_pack'";
+	cd $_pack
+	rm -rf */templates/*
+	rm -rf */*
+	cd ..
+	rm -rf $_pack
+}
+
+restoreValuesYaml() {
+	echo "restoring '$chart/values.yaml' from backup file '$chart/values.yaml.bak'";
+	mv $chart/values.yaml.bak $chart/values.yaml 
+}
+
+fail_trap() {
+	result=$?
+	if [ "$result" != "0" ]; then
+		echo "Failed to package $chart"
+	fi
+	exit $result
+}
+
+# Execution
+
+#Stop execution on any error
+trap "fail_trap" EXIT
+set -e
+initArgs
+verifySupported
+mergeValues
+filterOutTemplateFiles
+packChartArchive
+removePackDirectory
+restoreValuesYaml
