@@ -1,0 +1,8 @@
+FROM azul/zulu-openjdk-alpine:11-jre
+
+RUN apk update &&\
+    apk --no-cache add curl bash tzdata &&\
+    rm -rf /var/cache/apk/* &&\
+    cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime &&\
+    echo "Asia/Taipei" > /etc/timezone &&\
+    apk del tzdata
