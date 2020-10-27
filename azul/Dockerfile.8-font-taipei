@@ -8,6 +8,7 @@ RUN apk update &&\
     echo "Asia/Taipei" > /etc/timezone &&\
     apk del tzdata
 
-ENV SL_HOME /app
-ENV SL_DUMPS /tmp/dumps
-ENV SL_LOGS /tmp/logs
+# runtime app home
+ENV SL_HOME /tmp/app
+ENV SL_DUMPS $SL_HOME/dumps
+ENV SL_LOGS $SL_HOME/logs
