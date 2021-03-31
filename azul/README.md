@@ -1,6 +1,6 @@
 # SoftLeader Azul openjdk11
 
-```
+```sh
 # Java 8
 $ docker pull harbor.softleader.com.tw/thirdparty/zulu-openjdk-alpine:8-jre-taipei
 $ docker pull harbor.softleader.com.tw/thirdparty/zulu-openjdk-alpine:8-font-jre-taipei
