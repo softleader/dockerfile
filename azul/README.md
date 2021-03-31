@@ -1,4 +1,4 @@
-# SoftLeader Azul openjdk11
+# SoftLeader Azul openjdk
 
 ```sh
 # Java 8
