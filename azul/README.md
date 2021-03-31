@@ -9,3 +9,5 @@ $ docker pull harbor.softleader.com.tw/thirdparty/zulu-openjdk-alpine:8-font-jre
 $ docker pull harbor.softleader.com.tw/thirdparty/zulu-openjdk-alpine:11-jre-taipei
 $ docker pull harbor.softleader.com.tw/thirdparty/zulu-openjdk-alpine:11-font-jre-taipei
 ```
+
+> font 版本的 image 內含了 [DejaVu](https://dejavu-fonts.github.io/) 字型
