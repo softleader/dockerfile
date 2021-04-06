@@ -1,4 +1,6 @@
-# SoftLeader Azul openjdk
+# Azul Zulu
+
+松凌維護的 Base JRE Image 上層依賴自 [Azul Zulu](https://www.azul.com/products/zulu-enterprise/jdk-comparison-matrix/), 目前一共有:
 
 ```sh
 # Java 8
