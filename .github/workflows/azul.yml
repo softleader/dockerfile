@@ -1,7 +1,6 @@
 name: azul
 
 on:
-  push:
   schedule:
     - cron: "30 23 * * *"
   # Allows you to run this workflow manually from the Actions tab
