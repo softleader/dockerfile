@@ -1,4 +1,6 @@
-# SoftLeader openjdk11
+# [Deprecated] SoftLeader openjdk11
+
+請改使用 [./azul] 下的 Base Image
 
 > 從 openjdk 11 (含)之後都轉用 [AdoptOpenJDK](https://adoptopenjdk.net/) 釋出的版本
 

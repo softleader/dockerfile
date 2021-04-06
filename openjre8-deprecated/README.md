@@ -1,4 +1,6 @@
-# SoftLeader openjre8
+# [Deprecated] SoftLeader openjre8
+
+請改使用 [./azul] 下的 Base Image
 
 ## JRE Runtime
 

@@ -1,4 +1,6 @@
-# openjdk18-openshift
+# [Deprecated] openjdk18-openshift
+
+請改使用 [./azul] 下的 Base Image
 
 ```
 docker pull softleader/openjdk18-openshift
