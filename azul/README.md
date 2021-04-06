@@ -11,3 +11,27 @@ $ docker pull harbor.softleader.com.tw/thirdparty/zulu-openjdk-alpine:11-font-jr
 ```
 
 > font 版本的內含了 [DejaVu](https://dejavu-fonts.github.io/) 字型, image 大約會比無 font 版本的多 10mb, 通常會用在 pdf 匯出指定字型的需求上
+
+## Build image
+
+[`build-image.sh`](./build-image.sh) 會執行上述所有 image 的 docker build 及 docker push
+
+- 參數傳入 `ls` 列出所有支援的 image tag:
+
+```sh
+sh build-image.sh ls
+```
+
+- 傳入特定 `tag` 只打包單一 image tag, 如:
+
+```sh
+sh build-image.sh 11-jre-taipei
+```
+
+- 什麼都不傳入打包所有 tag:
+
+```sh
+sh build-image.sh 
+```
+
+[`build-image-no-cache.sh`](./build-image-no-cache.sh) 的用法跟上面完全一樣, 只差別在打包的過程中不會參考 docker layer cache, 通常用於強制更新 base image 來解決上層 image 被掃出來的 security issue
