@@ -1,6 +1,6 @@
 # Azul Zulu
 
-松凌維護的 Base JRE Image 之上層依賴自 [Azul Zulu](https://www.azul.com/products/zulu-enterprise/jdk-comparison-matrix/), 目前一共有:
+公司有維護 [JRE Base Image](https://github.com/softleader/dockerfile/tree/master/azul), 包含了 Java 8, Java 11 等在公司專案中常用的 JRE 版本, 這些 Image 的上層依賴了 [Azul Zulu](https://www.azul.com/products/zulu-enterprise/jdk-comparison-matrix/), 而公司會再多處理如 TimeZone 等常見的共通性設定
 
 ```sh
 # Java 8
