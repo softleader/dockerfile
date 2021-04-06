@@ -7,7 +7,7 @@ build_image() {
   set +ex
 }
 
-tags=(11-jre-taipei 11-font-jre-taipei 8-jre-taipei 8-fornt-jre-taipei)
+tags=(11-jre-taipei 11-font-jre-taipei 8-jre-taipei 8-font-jre-taipei)
 if [ "$1" = "ls" ]; then
   for tag in "${tags[@]}"
   do
