@@ -35,3 +35,7 @@ sh build-image.sh
 ```
 
 [`build-image-no-cache.sh`](./build-image-no-cache.sh) 的用法跟上面完全一樣, 只差別在打包的過程中不會參考 docker layer cache, 通常用於強制更新 base image 來解決上層 image 被掃出來的 security issue
+
+## GitHub Action
+
+由於松凌會長期維護此 base image, 因此有設定 [GitHub Action](../.github/workflows/azul-jre.yml) 每天定期更新, 以隨時獲得最新的 security issue fix

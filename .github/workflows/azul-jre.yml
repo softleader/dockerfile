@@ -1,4 +1,4 @@
-name: CI
+name: azul-jre
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  azul-jre-11:
+  11-jre-taipei:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -29,6 +29,78 @@ jobs:
           context: .
           file: ./azul/Dockerfile.11-jre-taipei
           tags: harbor.softleader.com.tw/library/zulu-openjdk-alpine:11-jre-taipei
+          no-cache: true
+          pull: true
+          push: true
+  11-font-jre-taipei:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          registry: harbor.softleader.com.tw
+          username: ${{ secrets.SL_HARBOR_ROBOT }}
+          password: ${{ secrets.SL_HARBOR_TOKEN }}
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./azul/Dockerfile.11-jre-taipei
+          tags: harbor.softleader.com.tw/library/zulu-openjdk-alpine:11-font-jre-taipei
+          no-cache: true
+          pull: true
+          push: true
+  8-jre-taipei:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          registry: harbor.softleader.com.tw
+          username: ${{ secrets.SL_HARBOR_ROBOT }}
+          password: ${{ secrets.SL_HARBOR_TOKEN }}
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./azul/Dockerfile.11-jre-taipei
+          tags: harbor.softleader.com.tw/library/zulu-openjdk-alpine:8-jre-taipei
+          no-cache: true
+          pull: true
+          push: true
+  8-font-jre-taipei:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          registry: harbor.softleader.com.tw
+          username: ${{ secrets.SL_HARBOR_ROBOT }}
+          password: ${{ secrets.SL_HARBOR_TOKEN }}
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./azul/Dockerfile.11-jre-taipei
+          tags: harbor.softleader.com.tw/library/zulu-openjdk-alpine:8-font-jre-taipei
           no-cache: true
           pull: true
           push: true
