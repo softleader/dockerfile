@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  zulu-11-jre: # 這個是拿來比對的, 讓我們的 harbor 掃描上層的 base image
+  adoptopenjdk-11-jre: # 這個是拿來比對的, 讓我們的 harbor 掃描上層的 base image
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -27,7 +27,7 @@ jobs:
         with:
           src: adoptopenjdk/openjdk11:alpine-jre
           dst: harbor.softleader.com.tw/library/adoptopenjdk-alpine:11-jre
-  zulu-11-jre-taipei:
+  adoptopenjdk-11-jre-taipei:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -51,7 +51,7 @@ jobs:
           no-cache: true
           pull: true
           push: true
-  zulu-11-font-jre-taipei:
+  adoptopenjdk-11-font-jre-taipei:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -75,7 +75,7 @@ jobs:
           no-cache: true
           pull: true
           push: true
-  zulu-8-jre: # 這個是拿來比對的, 讓我們的 harbor 掃描上層的 base image
+  adoptopenjdk-8-jre: # 這個是拿來比對的, 讓我們的 harbor 掃描上層的 base image
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -95,7 +95,7 @@ jobs:
         with:
           src: adoptopenjdk/openjdk8:alpine-jre
           dst: harbor.softleader.com.tw/library/adoptopenjdk-alpine:8-jre
-  azul-8-jre-taipei:
+  adoptopenjdk-8-jre-taipei:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -119,7 +119,7 @@ jobs:
           no-cache: true
           pull: true
           push: true
-  zulu-8-font-jre-taipei:
+  adoptopenjdk-8-font-jre-taipei:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
