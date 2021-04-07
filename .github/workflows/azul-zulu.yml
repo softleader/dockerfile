@@ -1,4 +1,4 @@
-name: azul
+name: azul-zulu
 
 on:
   schedule:
@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  azul-11-jre: # 這個是拿來比對的, 讓我們的 harbor 掃描上層的 base image
+  zulu-11-jre: # 這個是拿來比對的, 讓我們的 harbor 掃描上層的 base image
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -27,7 +27,7 @@ jobs:
         with:
           src: azul/zulu-openjdk-alpine:11-jre
           dst: harbor.softleader.com.tw/library/zulu-openjdk-alpine:11-jre
-  azul-11-jre-taipei:
+  zulu-11-jre-taipei:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -46,12 +46,12 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./azul/Dockerfile.11-jre-taipei
+          file: ./azul-zulu/Dockerfile.11-jre-taipei
           tags: harbor.softleader.com.tw/library/zulu-openjdk-alpine:11-jre-taipei
           no-cache: true
           pull: true
           push: true
-  azul-11-font-jre-taipei:
+  zulu-11-font-jre-taipei:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -70,12 +70,12 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./azul/Dockerfile.11-font-jre-taipei
+          file: ./azul-zulu/Dockerfile.11-font-jre-taipei
           tags: harbor.softleader.com.tw/library/zulu-openjdk-alpine:11-font-jre-taipei
           no-cache: true
           pull: true
           push: true
-  azul-8-jre: # 這個是拿來比對的, 讓我們的 harbor 掃描上層的 base image
+  zulu-8-jre: # 這個是拿來比對的, 讓我們的 harbor 掃描上層的 base image
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -114,12 +114,12 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./azul/Dockerfile.8-jre-taipei
+          file: ./azul-zulu/Dockerfile.8-jre-taipei
           tags: harbor.softleader.com.tw/library/zulu-openjdk-alpine:8-jre-taipei
           no-cache: true
           pull: true
           push: true
-  azul-8-font-jre-taipei:
+  zulu-8-font-jre-taipei:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -138,7 +138,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./azul/Dockerfile.8-font-jre-taipei
+          file: ./azul-zulu/Dockerfile.8-font-jre-taipei
           tags: harbor.softleader.com.tw/library/zulu-openjdk-alpine:8-font-jre-taipei
           no-cache: true
           pull: true

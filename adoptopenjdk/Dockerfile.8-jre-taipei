@@ -1,0 +1,14 @@
+FROM adoptopenjdk/openjdk8:alpine-jre
+LABEL maintainer="softleader.com.tw"
+
+RUN apk update &&\
+    apk --no-cache add curl bash tzdata &&\
+    rm -rf /var/cache/apk/* &&\
+    cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime &&\
+    echo "Asia/Taipei" > /etc/timezone &&\
+    apk del tzdata
+
+# runtime app home
+ENV SL_HOME /tmp/app
+ENV SL_DUMPS $SL_HOME
+ENV SL_LOGS $SL_HOME

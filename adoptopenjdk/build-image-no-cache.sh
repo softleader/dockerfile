@@ -2,8 +2,7 @@
 
 build_image() {
   set -ex
-  docker build --no-cache --pull -f Dockerfile.$1 -t harbor.softleader.com.tw/library/zulu-openjdk-alpine:$1 .
-  docker push harbor.softleader.com.tw/library/zulu-openjdk-alpine:$1
+  docker build --push --no-cache --pull -f Dockerfile.$1 -t harbor.softleader.com.tw/library/zulu-openjdk-alpine:$1 .
   set +ex
 }
 

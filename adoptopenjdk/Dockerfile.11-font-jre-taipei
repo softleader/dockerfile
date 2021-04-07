@@ -1,0 +1,9 @@
+FROM adoptopenjdk/openjdk11:alpine-jre
+LABEL maintainer="softleader.com.tw"
+
+RUN apk update &&\
+    apk --no-cache add curl bash tzdata fontconfig ttf-dejavu &&\
+    rm -rf /var/cache/apk/* &&\
+    cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime &&\
+    echo "Asia/Taipei" > /etc/timezone &&\
+    apk del tzdata
