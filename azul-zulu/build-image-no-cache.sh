@@ -2,10 +2,12 @@
 
 build_image() {
   set -ex
-  docker build --push --no-cache --pull -f Dockerfile.$1 -t harbor.softleader.com.tw/library/zulu-openjdk-alpine:$1 .
+  docker build --no-cache --pull -f Dockerfile.$1 -t ${image}:$1 .
+  docker push ${image}:$1
   set +ex
 }
 
+image=zharbor.softleader.com.tw/library/ulu-openjdk-alpine
 tags=(11-jre-taipei 11-font-jre-taipei 8-jre-taipei 8-font-jre-taipei)
 if [ "$1" = "ls" ]; then
   for tag in "${tags[@]}"
