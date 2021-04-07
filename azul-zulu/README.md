@@ -1,6 +1,6 @@
 # Azul Zulu
 
-> 請參考 [`../adopt-openjdk`](../adopt-openjdk)
+> 若需要請參考 [`../adoptopenjdk`](../adoptopenjdk) 版本
 
 公司維護的 JRE Base Image 的上層依賴了 [Azul Zulu](https://www.azul.com/products/zulu-enterprise/jdk-comparison-matrix/), 另外會再多處理如 TimeZone 等常見的共通性設定, 包含了 Java 8, Java 11 等專案中常用的 JRE 版本:
 
