@@ -1,6 +1,6 @@
 # [Deprecated] SoftLeader openjre8
 
-請改使用 [`../azul-zulu`](../azul-zulu) 或 [`../adopt-openjdk`](../adopt-openjdk) 下的 Base Image
+請改使用 [`../azul-zulu`](../azul-zulu) 或 [`../adoptopenjdk`](../adoptopenjdk) 下的 Base Image
 
 ## JRE Runtime
 
