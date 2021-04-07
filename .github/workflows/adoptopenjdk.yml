@@ -25,7 +25,7 @@ jobs:
       - name: Tag and push
         uses: akhilerm/tag-push-action@v1.0.0
         with:
-          src: adoptopenjdk/openjdk11:alpine-jre
+          src: docker.io/adoptopenjdk/openjdk11:alpine-jre
           dst: harbor.softleader.com.tw/library/adoptopenjdk-alpine:11-jre
   adoptopenjdk-11-jre-taipei:
     runs-on: ubuntu-latest
@@ -93,7 +93,7 @@ jobs:
       - name: Tag and push
         uses: akhilerm/tag-push-action@v1.0.0
         with:
-          src: adoptopenjdk/openjdk8:alpine-jre
+          src: docker.io/adoptopenjdk/openjdk8:alpine-jre
           dst: harbor.softleader.com.tw/library/adoptopenjdk-alpine:8-jre
   adoptopenjdk-8-jre-taipei:
     runs-on: ubuntu-latest
