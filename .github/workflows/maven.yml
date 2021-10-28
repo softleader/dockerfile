@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  3-azulzulu-11:
+  _3-azulzulu-11:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -31,7 +31,7 @@ jobs:
           no-cache: true
           pull: true
           push: true
-  3-eclipse-temurin-8:
+  _3-eclipse-temurin-8:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -55,7 +55,7 @@ jobs:
           no-cache: true
           pull: true
           push: true
-  3-eclipse-temurin-11:
+  _3-eclipse-temurin-11:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
