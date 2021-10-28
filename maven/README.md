@@ -1,6 +1,6 @@
 # Maven
 
-Base Image 來自 [ghcr.io/carlossg/maven](https://ghcr.io/carlossg/maven), 公司額外針對 maven 3.8 之後預設不能連 http repository 這問題來做處理
+Base Image 來自 [ghcr.io/carlossg/maven](https://ghcr.io/carlossg/maven), 公司額外針對 maven 3.6 之後預設不能連 http repository 這問題來做處理
 
 ## Build image
 
