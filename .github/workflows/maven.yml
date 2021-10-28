@@ -26,7 +26,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./maven/3-azulzulu-11
+          file: ./maven/Dockerfile.3-azulzulu-11
           tags: harbor.softleader.com.tw/library/maven:3-azulzulu-11
           no-cache: true
           pull: true
@@ -74,7 +74,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./maven/3-eclipse-temurin-11
+          file: ./maven/Dockerfile.3-eclipse-temurin-11
           tags: harbor.softleader.com.tw/library/maven:3-eclipse-temurin-11
           no-cache: true
           pull: true
