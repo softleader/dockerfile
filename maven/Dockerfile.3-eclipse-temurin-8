@@ -1,0 +1,6 @@
+FROM ghcr.io/carlossg/maven:3-eclipse-temurin-11
+LABEL maintainer="softleader.com.tw"
+
+# Disable maven blocking external HTTP repositores
+# https://stackoverflow.com/questions/67001968/how-to-disable-maven-blocking-external-http-repositores
+RUN sed -i '/<mirror>/,/<\/mirror>/d' /usr/share/maven/conf/settings.xml
