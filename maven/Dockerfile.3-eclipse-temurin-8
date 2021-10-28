@@ -1,4 +1,4 @@
-FROM ghcr.io/carlossg/maven:3-eclipse-temurin-11
+FROM ghcr.io/carlossg/maven:3-eclipse-temurin-8
 LABEL maintainer="softleader.com.tw"
 
 # Disable maven blocking external HTTP repositores
