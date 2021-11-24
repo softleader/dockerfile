@@ -2,6 +2,11 @@
 
 Base Image 來自 [ghcr.io/carlossg/maven](https://ghcr.io/carlossg/maven), 公司額外針對 maven 3.6 之後預設不能連 http repository 這問題來做處理
 
+```sh
+docker pull harbor.softleader.com.tw/library/maven:3-azulzulu-11
+docker pull harbor.softleader.com.tw/library/maven:3-eclipse-temurin-8
+docker pull harbor.softleader.com.tw/library/maven:3-eclipse-temurin-11
+```
 ## Build image
 
 [`build-image.sh`](./build-image.sh) 會執行上述所有 image 的 docker build 及 docker push
@@ -28,4 +33,4 @@ sh build-image.sh
 
 ## GitHub Action
 
-由於松凌會長期維護此 base image, 因此有設定 [GitHub Action](../.github/workflows/azul-zulu.yml) 每天定期更新, 以隨時獲得最新的 security issue fix
+由於松凌會長期維護此 base image, 因此有設定 [GitHub Action](../.github/workflows/maven.yml) 每天定期更新, 以隨時獲得最新的 security issue fix
