@@ -26,7 +26,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./maven/Dockerfile.2
+          file: ./git/Dockerfile.2
           tags: harbor.softleader.com.tw/library/git:2
           no-cache: true
           pull: true
