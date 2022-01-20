@@ -1,6 +1,6 @@
 # Maven
 
-Base Image 來自 [ghcr.io/carlossg/maven](https://ghcr.io/carlossg/maven), 公司額外針對 maven 3.6 之後預設不能連 http repository 這問題來做處理
+Base Image 來自 [ghcr.io/carlossg/maven](https://ghcr.io/carlossg/maven), 公司額外針對 maven 3.6 之後預設不能連 http repository 這問題來做處理, 另外我們還放了 docker cli 因為 App 執行測試的過程中會用到 [Testcontainers](https://www.testcontainers.org/) 而這個套件需要 docker!
 
 ```sh
 docker pull harbor.softleader.com.tw/library/maven:3-azulzulu-11
@@ -26,7 +26,7 @@ sh build-image.sh 3-eclipse-temurin-11
 - 什麼都不傳入打包所有 tag:
 
 ```sh
-sh build-image.sh 
+sh build-image.sh
 ```
 
 [`build-image-no-cache.sh`](./build-image-no-cache.sh) 的用法跟上面完全一樣, 只差別在打包的過程中不會參考 docker layer cache, 通常用於強制更新 base image 來解決上層 image 被掃出來的 security issue
