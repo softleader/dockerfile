@@ -1,4 +1,4 @@
-FROM ghcr.io/carlossg/maven:azulzulu-17
+FROM ghcr.io/carlossg/maven:3-azulzulu-17
 LABEL maintainer="softleader.com.tw"
 
 # Disable maven blocking external HTTP repositores
