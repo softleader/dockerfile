@@ -13,7 +13,7 @@ $ docker pull harbor.softleader.com.tw/library/zulu-openjdk-alpine:8-font-jre-ta
 $ docker pull harbor.softleader.com.tw/library/zulu-openjdk-alpine:11-jre-taipei
 $ docker pull harbor.softleader.com.tw/library/zulu-openjdk-alpine:11-font-jre-taipei
 
-# Java 11
+# Java 17
 $ docker pull harbor.softleader.com.tw/library/zulu-openjdk-alpine:17-jre-taipei
 $ docker pull harbor.softleader.com.tw/library/zulu-openjdk-alpine:17-font-jre-taipei
 ```
