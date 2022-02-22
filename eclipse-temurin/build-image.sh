@@ -7,8 +7,8 @@ build_image() {
   set +ex
 }
 
-image=harbor.softleader.com.tw/library/adoptopenjdk-alpine
-tags=(11-jre-taipei 11-font-jre-taipei 8-jre-taipei 8-font-jre-taipei)
+image=harbor.softleader.com.tw/library/eclipse-temurin-alpine
+tags=(17-jre-taipei 17-font-jre-taipei 11-jre-taipei 11-font-jre-taipei 8-jre-taipei 8-font-jre-taipei)
 
 if [ "$1" = "ls" ]; then
   for tag in "${tags[@]}"

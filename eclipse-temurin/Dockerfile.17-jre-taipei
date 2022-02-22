@@ -1,0 +1,9 @@
+FROM eclipse-temurin:17-jre-alpine
+LABEL maintainer="softleader.com.tw"
+
+RUN apk update &&\
+    apk --no-cache add curl bash tzdata &&\
+    rm -rf /var/cache/apk/* &&\
+    cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime &&\
+    echo "Asia/Taipei" > /etc/timezone &&\
+    apk del tzdata
