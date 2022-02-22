@@ -8,7 +8,7 @@ build_image() {
 }
 
 image=harbor.softleader.com.tw/library/zulu-openjdk-alpine
-tags=(11-jre-taipei 11-font-jre-taipei 8-jre-taipei 8-font-jre-taipei)
+tags=(17-jre-taipei 17-font-jre-taipei 11-jre-taipei 11-font-jre-taipei 8-jre-taipei 8-font-jre-taipei)
 
 if [ "$1" = "ls" ]; then
   for tag in "${tags[@]}"
