@@ -1,8 +1,8 @@
-FROM azul/zulu-openjdk-alpine:11-jre
+FROM azul/zulu-openjdk-alpine:11.0.15-jre-headless
 LABEL maintainer="softleader.com.tw"
 
 RUN apk update &&\
-    apk --no-cache add curl bash tzdata fontconfig ttf-dejavu &&\
+    apk --no-cache add curl bash tzdata libpng-dev fontconfig ttf-dejavu &&\
     rm -rf /var/cache/apk/* &&\
     cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime &&\
     echo "Asia/Taipei" > /etc/timezone &&\
