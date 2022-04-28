@@ -1,0 +1,7 @@
+FROM azul/zulu-openjdk-centos:11
+LABEL maintainer="softleader.com.tw"
+
+RUN yum -y update &&\
+	yum -y install curl fontconfig ttf-dejavu &&\
+	yum clean all &&\
+	cp -vf /usr/share/zoneinfo/Asia/Taipei /etc/localtime
