@@ -33,4 +33,4 @@ sh build-image.sh
 
 ## GitHub Action
 
-由於松凌會長期維護此 base image, 因此有設定 [GitHub Action](../.github/workflows/maven.yml) 每天定期更新, 以隨時獲得最新的 security issue fix
+由於松凌會長期維護此 base image, 因此有設定 [GitHub Action](../.github/workflows) 每天定期更新, 以隨時獲得最新的 security issue fix
