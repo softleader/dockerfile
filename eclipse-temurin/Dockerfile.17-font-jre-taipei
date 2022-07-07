@@ -2,6 +2,8 @@ FROM eclipse-temurin:17-jre-alpine
 LABEL maintainer="softleader.com.tw"
 
 RUN apk update &&\
+	# 避免 upstream 有些 package 沒更新到被掃出風險, 這邊強制都 upgrade 一下
+	apk --no-cache upgrade &&\
     apk --no-cache add curl bash tzdata fontconfig ttf-dejavu &&\
     rm -rf /var/cache/apk/* &&\
     cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime &&\

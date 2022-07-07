@@ -2,6 +2,8 @@ FROM adoptopenjdk/openjdk8:alpine-jre
 LABEL maintainer="softleader.com.tw"
 
 RUN apk update &&\
+	# 避免 upstream 有些 package 沒更新到被掃出風險, 這邊強制都 upgrade 一下
+	apk --no-cache upgrade &&\
     apk --no-cache add curl bash tzdata &&\
     rm -rf /var/cache/apk/* &&\
     cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime &&\
