@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  sftp-upload:
+    build: .
+    environment:
+      USER: transglobe
+      PASSWORD: R7ygMGwD
+      REMOTE_DIR: /TransGlobe
+      # TAR_NAME: # 預設為: images-當前時間到秒.tar
+    command:
+      - alpine
+      - busybox
+    tty: true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
