@@ -6,5 +6,5 @@
 # 修改 docker-compose.yml 中的配置
 vim docker-compose.yml
 
-docker compose run sftp-upload
+docker compose run --rm sftp-image MY_IMAGE MY_OTHER_IMAGE ...
 ```
