@@ -11,7 +11,8 @@ port=${PORT-2224}
 user=${USER}
 password=${PASSWORD}
 remote_dir=${REMOTE_DIR}
-tar_path=/tmp/${TAR_NAME-images_$(date +"%Y%m%d_%H%M%S").tar}
+tar_name=${TAR_NAME-${TAR_NAME_PREFIX-images}_$(date +"%Y%m%d_%H%M%S")}.tar
+tar_path=/tmp/${tar_name}
 local_file_path=${tar_path}.gz
 images="$@"
 
@@ -28,10 +29,12 @@ save_tar_gz() {
   { set +x; } 2>/dev/null
 }
 
-remove_images() {
+ensure_remote_dir_exist() {
+  set +e
   set -x
-  docker rmi ${images}
+  sshpass -p ${password} sftp -o StrictHostKeyChecking=no -P ${port} ${user}@${host} <<< $"mkdir ${remote_dir}"
   { set +x; } 2>/dev/null
+  set -e
 }
 
 sftp_upload() {
@@ -44,5 +47,5 @@ for arg; do
   pull_image $arg
 done
 save_tar_gz
-remove_images
+ensure_remote_dir_exist
 sftp_upload

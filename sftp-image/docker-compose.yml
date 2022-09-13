@@ -8,8 +8,9 @@ services:
       # POST: 2224
       USER: transglobe
       PASSWORD: R7ygMGwD
-      REMOTE_DIR: /TransGlobe
-      # TAR_NAME: # 預設為: images-當前時間到秒.tar
+      REMOTE_DIR: /TransGlobe/haha
+      # TAR_NAME: "aaa" # 直接指定 tar name
+      TAR_NAME_PREFIX: "aaa" # 預設為: "images", 後面固定會接 _yyyyMMddHHmmSS.tar
     # command: # 可以在這邊指定 images, 或是在 docker compose run 時指定
     #   - alpine
     #   - busybox
