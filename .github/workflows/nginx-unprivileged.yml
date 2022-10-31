@@ -22,8 +22,12 @@ jobs:
           registry: harbor.softleader.com.tw
           username: ${{ secrets.SL_HARBOR_ROBOT }}
           password: ${{ secrets.SL_HARBOR_TOKEN }}
-      - name: Tag and push
-        uses: akhilerm/tag-push-action@v2.0.0
+      - name: Build and push
+        uses: docker/build-push-action@v2
         with:
-          src: docker.io/nginxinc/nginx-unprivileged:stable-alpine
-          dst: harbor.softleader.com.tw/library/nginx-unprivileged:stable-alpine
+          context: .
+          file: ./nginx/Dockerfile
+          tags: harbor.softleader.com.tw/library/nginx-unprivileged:stable-alpine
+          no-cache: true
+          pull: true
+          push: true

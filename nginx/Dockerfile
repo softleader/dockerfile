@@ -2,7 +2,6 @@ FROM nginxinc/nginx-unprivileged:stable-alpine
 
 USER root
 
-RUN apk update &&\
-    apk add --upgrade zlib
+RUN apk update && apk --no-cache upgrade
 
 USER $UID
