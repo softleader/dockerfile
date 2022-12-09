@@ -1,4 +1,4 @@
-it gFROM docker:dind
+FROM docker:dind
 MAINTAINER softleader.com.tw
 
 # install packages & set timezone: https://wiki.alpinelinux.org/wiki/Setting_the_timezone
