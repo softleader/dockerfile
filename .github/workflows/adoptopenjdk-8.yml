@@ -43,7 +43,7 @@ jobs:
           username: ${{ secrets.SL_HARBOR_ROBOT }}
           password: ${{ secrets.SL_HARBOR_TOKEN }}
       - name: Build and push
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v3
         with:
           context: .
           file: ./eclipse-temurin/Dockerfile.8-jre-taipei
@@ -67,7 +67,7 @@ jobs:
           username: ${{ secrets.SL_HARBOR_ROBOT }}
           password: ${{ secrets.SL_HARBOR_TOKEN }}
       - name: Build and push
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v3
         with:
           context: .
           file: ./eclipse-temurin/Dockerfile.8-font-jre-taipei
