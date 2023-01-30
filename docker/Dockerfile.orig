@@ -1,5 +1,9 @@
 FROM docker:dind
+<<<<<<< Updated upstream
+MAINTAINER softleader.com.tw
+=======
 LABEL maintainer="softleader.com.tw"
+>>>>>>> Stashed changes
 
 # install packages & set timezone: https://wiki.alpinelinux.org/wiki/Setting_the_timezone
 RUN apk update && \
