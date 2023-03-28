@@ -1,7 +1,7 @@
 FROM golang:alpine
 MAINTAINER softleader.com.tw
 
-RUN apk update && \ 
+RUN apk update && \
 	apk --no-cache add \
 		bash \
 		vim \
@@ -14,7 +14,9 @@ RUN apk update && \
 	ls /usr/share/zoneinfo && \
 	cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime && \
 	echo "Asia/Taipei" > /etc/timezone && \
-	go get github.com/goreleaser/goreleaser
+	go get github.com/goreleaser/goreleaser \
+
+ENV TZ=Asia/Taipei
 
 VOLUME ~/.config/goreleaser/
 

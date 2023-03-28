@@ -9,4 +9,6 @@ RUN apk update \
     && echo "Asia/Taipei" > /etc/timezone \
     && apk del tzdata
 
+ENV TZ=Asia/Taipei
+
 COPY .bashrc /root/.bashrc

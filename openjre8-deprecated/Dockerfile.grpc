@@ -12,3 +12,5 @@ RUN apk update \
     && echo "Asia/Taipei" > /etc/timezone \
     && rm /etc/apk/keys/sgerrand.rsa.pub \
     && apk del ca-certificates wget tzdata
+
+ENV TZ=Asia/Taipei

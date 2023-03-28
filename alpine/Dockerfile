@@ -10,3 +10,4 @@ RUN apk update \
 
 COPY .bashrc /root/.bashrc
 
+ENV TZ=Asia/Taipei

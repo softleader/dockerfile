@@ -2,7 +2,7 @@ FROM frolvlad/alpine-oraclejdk8
 MAINTAINER softleader.com.tw
 
 # install packages & set timezone: https://wiki.alpinelinux.org/wiki/Setting_the_timezone
-RUN apk update && \ 
+RUN apk update && \
 	apk --no-cache add \
 		bash \
 		vim \
@@ -18,3 +18,5 @@ RUN apk update && \
 COPY .bashrc /root/.bashrc
 
 VOLUME /logs
+
+ENV TZ=Asia/Taipei

@@ -16,6 +16,7 @@ ENV _gid=1000
 ENV SL_HOME /var/softleader_home
 ENV SL_DUMPS $SL_HOME/dumps
 ENV SL_LOGS $SL_HOME/logs
+ENV TZ=Asia/Taipei
 
 COPY .bashrc $SL_HOME/.bashrc
 COPY .bashrc /root/.bashrc

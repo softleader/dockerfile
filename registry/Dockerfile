@@ -2,7 +2,7 @@ FROM registry
 MAINTAINER softleader.com.tw
 
 # install packages & set timezone: https://wiki.alpinelinux.org/wiki/Setting_the_timezone
-RUN apk update && \ 
+RUN apk update && \
 	apk --no-cache add \
 		bash \
 		vim \
@@ -15,5 +15,7 @@ RUN apk update && \
 	cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime && \
 	echo "Asia/Taipei" > /etc/timezone && \
 	curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m) -o /docker-compose
+
+ENV TZ=Asia/Taipei
 
 COPY docker-compose.yml /docker-compose.yml

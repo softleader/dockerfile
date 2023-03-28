@@ -8,3 +8,5 @@ RUN apk update \
     && cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime \
     && echo "Asia/Taipei" > /etc/timezone \
     && apk del tzdata
+
+ENV TZ=Asia/Taipei
