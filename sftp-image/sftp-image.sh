@@ -8,7 +8,7 @@ fi
 
 host=${HOST-softleader.com.tw}
 port=${PORT-2224}
-user=${USER}
+user=${USER-${user}}
 password=${PASSWORD}
 remote_dir=${REMOTE_DIR}
 tar_name=${TAR_NAME-${TAR_NAME_PREFIX-images}_$(date +"%Y%m%d_%H%M%S")}.tar
