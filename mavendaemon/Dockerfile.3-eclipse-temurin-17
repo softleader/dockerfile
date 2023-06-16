@@ -1,0 +1,4 @@
+FROM eclipse-temurin:17-jdk-alpine
+COPY ./mvnd /opt/mvnd
+ENV PATH="$PATH:/opt/mvnd/bin"
+WORKDIR /tmp
