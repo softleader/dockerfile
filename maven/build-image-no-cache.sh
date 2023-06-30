@@ -8,7 +8,7 @@ build_image() {
 }
 
 image=harbor.softleader.com.tw/library/maven
-tags=(3-eclipse-temurin-8 3-azulzulu-11 3-eclipse-temurin-11 3-azulzulu-17 3-eclipse-temurin-17)
+tags=(3-eclipse-temurin-8 3-azulzulu-11 3-eclipse-temurin-11 3-azulzulu-17 3-eclipse-temurin-17 3-eclipse-temurin-17-nodejs)
 
 if [ "$1" = "ls" ]; then
   for tag in "${tags[@]}"

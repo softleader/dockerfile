@@ -1,0 +1,20 @@
+FROM ghcr.io/carlossg/maven:3-eclipse-temurin-17
+LABEL maintainer="softleader.com.tw"
+
+# Disable maven blocking external HTTP repositores
+# https://stackoverflow.com/questions/67001968/how-to-disable-maven-blocking-external-http-repositores
+RUN sed -i '/<mirror>/,/<\/mirror>/d' /usr/share/maven/conf/settings.xml
+
+RUN apt-get update && apt-get install -y \
+	gnupg lsb-release \
+	&& curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg \
+	&& echo \
+		"deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+		$(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null \
+	&& apt-get update && apt-get install -y \
+  # 安裝 pipeline 中常用到的套件
+  make docker-ce-cli zip \
+  && rm -rf /var/lib/apt/lists/*
+
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
+  && apt-get install -y nodejs
