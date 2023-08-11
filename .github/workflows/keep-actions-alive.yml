@@ -7,24 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  update-readme:
+  keepalive:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.head_ref }}
-      - uses: 'euberdeveloper/ga-dree@main'
-        with:
-          showMadeWithDree: 'false' # Does not add "Made with dree"
-      - uses: actions/upload-artifact@v2
-        with:
-          name: README.md
-          path: README.md
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "docs: inject dree (automated commit)"
-          branch: ${{ github.head_ref }}
-          commit_user_name: keepalive[bot]
-          commit_user_email: keepalive-bot@softleader.com.tw
-          commit_author: Keepalive <keepalive-bot@softleader.com.tw>
       - uses: gautamkrishnar/keepalive-workflow@v1
