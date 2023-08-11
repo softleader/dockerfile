@@ -6,68 +6,6 @@
 ```
 dockerfile
  ├── .editorconfig
- ├─> .git
- │   ├── FETCH_HEAD
- │   ├── HEAD
- │   ├─> branches
- │   ├── config
- │   ├── description
- │   ├─> hooks
- │   │   ├── applypatch-msg.sample
- │   │   ├── commit-msg.sample
- │   │   ├── fsmonitor-watchman.sample
- │   │   ├── post-update.sample
- │   │   ├── pre-applypatch.sample
- │   │   ├── pre-commit.sample
- │   │   ├── pre-merge-commit.sample
- │   │   ├── pre-push.sample
- │   │   ├── pre-rebase.sample
- │   │   ├── pre-receive.sample
- │   │   ├── prepare-commit-msg.sample
- │   │   ├── push-to-checkout.sample
- │   │   ├── sendemail-validate.sample
- │   │   └── update.sample
- │   ├── index
- │   ├─> info
- │   │   └── exclude
- │   ├─> logs
- │   │   ├── HEAD
- │   │   └─> refs
- │   │       ├─> heads
- │   │       │   └── master
- │   │       └─> remotes
- │   │           └─> origin
- │   │               └── master
- │   ├─> objects
- │   │   ├─> info
- │   │   └─> pack
- │   │       ├── pack-2143a1af099c98abda3b724295fa5651692eea6c.idx
- │   │       ├── pack-2143a1af099c98abda3b724295fa5651692eea6c.pack
- │   │       └── pack-2143a1af099c98abda3b724295fa5651692eea6c.rev
- │   ├─> refs
- │   │   ├─> heads
- │   │   │   └── master
- │   │   ├─> remotes
- │   │   │   └─> origin
- │   │   │       └── master
- │   │   └─> tags
- │   └── shallow
- ├─> .github
- │   ├── dependabot.yml
- │   └─> workflows
- │       ├── adoptopenjdk-11.yml
- │       ├── adoptopenjdk-8.yml
- │       ├── azul-zulu-11.yml
- │       ├── azul-zulu-17.yml
- │       ├── azul-zulu-8.yml
- │       ├── eclipse-temurin-17.yml
- │       ├── git.yml
- │       ├── keepalive.yml
- │       ├── maven-jdk11.yml
- │       ├── maven-jdk17.yml
- │       ├── maven-jdk8.yml
- │       └── nginx-unprivileged.yml
- ├── .gitignore
  ├── README.md
  ├─> alpine
  │   ├── .bashrc
