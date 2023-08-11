@@ -1,4 +1,4 @@
-name: Keep cronjob alive
+name: keep-actions-alive
 
 on:
   schedule:
