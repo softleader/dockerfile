@@ -41,9 +41,9 @@ dockerfile
  │   ├─> objects
  │   │   ├─> info
  │   │   └─> pack
- │   │       ├── pack-f065608066dd96facb8075cae1e5955523477889.idx
- │   │       ├── pack-f065608066dd96facb8075cae1e5955523477889.pack
- │   │       └── pack-f065608066dd96facb8075cae1e5955523477889.rev
+ │   │       ├── pack-2143a1af099c98abda3b724295fa5651692eea6c.idx
+ │   │       ├── pack-2143a1af099c98abda3b724295fa5651692eea6c.pack
+ │   │       └── pack-2143a1af099c98abda3b724295fa5651692eea6c.rev
  │   ├─> refs
  │   │   ├─> heads
  │   │   │   └── master
