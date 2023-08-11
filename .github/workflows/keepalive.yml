@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: master
+          ref: ${{ github.head_ref }}
       # This is how you use the ga-dree action
       - name: Inject dree
         uses: 'euberdeveloper/ga-dree@main'
@@ -23,6 +23,9 @@ jobs:
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
+          commit_user_name: keepalive[bot]
+          commit_user_email: keepalive-bot@softleader.com.tw
+          commit_author: Keepalive <keepalive-bot@softleader.com.tw>
           commit_message: "docs: inject dree (automated commit)"
-          branch: master
+          branch: ${{ github.head_ref }}
       - uses: gautamkrishnar/keepalive-workflow@v1
