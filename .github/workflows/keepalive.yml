@@ -16,7 +16,6 @@ jobs:
       - uses: 'euberdeveloper/ga-dree@main'
         with:
           showMadeWithDree: 'false' # Does not add "Made with dree"
-          exclude: .git/,.github/,.editorconfig
       - run: cat ./README.md
       - uses: actions/upload-artifact@v2
         with:
