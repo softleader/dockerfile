@@ -13,19 +13,21 @@ jobs:
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.head_ref }}
-      # This is how you use the ga-dree action
       - name: Inject dree
         uses: 'euberdeveloper/ga-dree@main'
         with:
           showMadeWithDree: 'false' # Does not add "Made with dree"
           exclude: .git/**,.github/**
-      # In this step the changes to the branch are committed
+      - uses: actions/upload-artifact@v2
+        with:
+          name: README.md
+          path: README.md
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
+          commit_message: "docs: inject dree (automated commit)"
+          branch: ${{ github.head_ref }}
           commit_user_name: keepalive[bot]
           commit_user_email: keepalive-bot@softleader.com.tw
           commit_author: Keepalive <keepalive-bot@softleader.com.tw>
-          commit_message: "docs: inject dree (automated commit)"
-          branch: ${{ github.head_ref }}
       - uses: gautamkrishnar/keepalive-workflow@v1
