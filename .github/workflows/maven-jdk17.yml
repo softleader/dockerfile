@@ -73,7 +73,7 @@ jobs:
           username: ${{ secrets.SL_HARBOR_ROBOT }}
           password: ${{ secrets.SL_HARBOR_TOKEN }}
       - name: Build and push
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           context: .
           file: ./maven/Dockerfile.3-eclipse-temurin-17-nodejs
