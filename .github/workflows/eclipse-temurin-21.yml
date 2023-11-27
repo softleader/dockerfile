@@ -46,7 +46,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: ./eclipse-temurin/Dockerfile.17-jre-taipei
+          file: ./eclipse-temurin/Dockerfile.21-jre-taipei
           tags: harbor.softleader.com.tw/library/eclipse-temurin-alpine:21-jre-taipei
           provenance: false
           no-cache: true
