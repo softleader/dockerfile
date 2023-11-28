@@ -1,6 +1,6 @@
 # Azul Zulu
 
-> 若需要請參考 [`../eclipse-temurin`](../eclipse-temurin) 版本，且從 Java 21 以後，公司也只提供 eclipse-temurin 版本
+> 若需要請參考 [`../eclipse-temurin`](../eclipse-temurin) 版本，且從 Java 21 以後，公司也只維護 eclipse-temurin 版本
 
 公司維護的 JRE Base Image 的上層依賴了 [Azul Zulu](https://www.azul.com/products/zulu-enterprise/jdk-comparison-matrix/), 另外會再多處理如 TimeZone 等常見的共通性設定，包含了 Java 8, Java 11 等專案中常用的 JRE 版本:
 
