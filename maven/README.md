@@ -4,14 +4,14 @@ Base Image 來自 [ghcr.io/carlossg/maven](https://ghcr.io/carlossg/maven), 公�
 
 ```sh
 # 公司只針對 eclipse-temurin 維護多種 Java 版本
-docker pull harbor.softleader.com.tw/library/maven:3-eclipse-temurin-8
-docker pull harbor.softleader.com.tw/library/maven:3-eclipse-temurin-11
-docker pull harbor.softleader.com.tw/library/maven:3-eclipse-temurin-17
 docker pull harbor.softleader.com.tw/library/maven:3-eclipse-temurin-21
+docker pull harbor.softleader.com.tw/library/maven:3-eclipse-temurin-17
+docker pull harbor.softleader.com.tw/library/maven:3-eclipse-temurin-11
+docker pull harbor.softleader.com.tw/library/maven:3-eclipse-temurin-8
 
-# 若有 Azul Zulu 的 Java 版本的需求，請提出評估後才加上
-docker pull harbor.softleader.com.tw/library/maven:3-azulzulu-11
+# 若有 Azul Zulu 的 Java 版本需求，請提出評估後才加上
 docker pull harbor.softleader.com.tw/library/maven:3-azulzulu-17
+docker pull harbor.softleader.com.tw/library/maven:3-azulzulu-11
 ```
 ## Build image
 
