@@ -1,14 +1,13 @@
 FROM tomcat:9.0.84-jre8-temurin-jammy
 MAINTAINER softleader.com.tw
 
-RUN apk update &&\
+RUN apt update &&\
 	  # 避免 upstream 有些 package 沒更新到被掃出風險, 這邊強制都 upgrade 一下
-	  apk --no-cache upgrade &&\
-    apk --no-cache add curl bash tzdata fontconfig ttf-dejavu &&\
-    rm -rf /var/cache/apk/* &&\
+    apt -y upgrade &&\
+    apt install -y curl bash tzdata fontconfig &&\
+    apt clean &&\
     cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime &&\
-    echo "Asia/Taipei" > /etc/timezone &&\
-    apk del tzdata
+    echo "Asia/Taipei" > /etc/timezone
 
 # runtime app home
 ENV SL_HOME /tmp/app
