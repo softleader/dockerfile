@@ -4,7 +4,7 @@
 
 公司維護的 JRE Base Image 的上層依賴了 [Eclipse Temurin](https://adoptium.net/), 另外會再多處理如 TimeZone 等常見的共通性設定，包含了 Java 8, Java 11 等專案中常用的 JRE 版本:
 
-**Eclipse Temurin 以前叫做 AdoptOpenJDK, 之後來加入了 Eclipse 基金會才改了名字，公司對應的舊版本名字將維持不變，從 17 版之後才會改使用新名字 **
+**Eclipse Temurin 以前叫做 AdoptOpenJDK, 之後來加入了 Eclipse 基金會才改了名字，公司對應的舊版本名字將維持不變，從 17 版之後才會改使用新名字**
 
 ```sh
 # Java 8
