@@ -3,6 +3,9 @@
 Base Image 來自 [ghcr.io/carlossg/maven](https://ghcr.io/carlossg/maven), 公司額外針對 maven 3.6 之後預設不能連 http repository 這問題來做處理，另外我們還放了 docker cli 因為 App 執行測試的過程中會用到 [Testcontainers](https://www.testcontainers.org/) 而這個套件需要 docker!
 
 ```sh
+# GraalVM for build native
+docker pull harbor.softleader.com.tw/library/maven:3-graalvm-community-21
+
 # 公司只針對 eclipse-temurin 維護多種 Java 版本
 docker pull harbor.softleader.com.tw/library/maven:3-eclipse-temurin-21
 docker pull harbor.softleader.com.tw/library/maven:3-eclipse-temurin-17
