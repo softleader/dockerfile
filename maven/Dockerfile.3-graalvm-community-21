@@ -1,0 +1,13 @@
+FROM ghcr.io/carlossg/maven:3-graalvm-community-21
+LABEL maintainer="softleader.com.tw"
+
+# Disable maven blocking external HTTP repositores
+# https://stackoverflow.com/questions/67001968/how-to-disable-maven-blocking-external-http-repositores
+RUN sed -i '/<mirror>/,/<\/mirror>/d' /usr/share/maven/conf/settings.xml
+
+RUN microdnf --refresh -y install \
+	yum yum-utils \
+	&& yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo \
+	&& yum --refresh -y install \
+  # 安裝 pipeline 中常用到的套件
+  make docker-ce-cli zip

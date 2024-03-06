@@ -2,7 +2,7 @@ name: maven-jdk21
 
 on:
   schedule:
-    - cron: "50 15 * * *" # In UTC time
+    - cron: "30 15 * * SUN" # In UTC time
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 

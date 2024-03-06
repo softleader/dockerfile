@@ -1,13 +1,13 @@
-name: maven-jdk8
+name: maven-jdk21
 
 on:
   schedule:
-    - cron: "0 15 * * SUN" # In UTC time
+    - cron: "40 15 * * SUN" # In UTC time
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 jobs:
-  _3-eclipse-temurin-8:
+  _3-eclipse-temurin-21:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -26,8 +26,8 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: ./maven/Dockerfile.3-eclipse-temurin-8
-          tags: harbor.softleader.com.tw/library/maven:3-eclipse-temurin-8
+          file: ./maven/Dockerfile.3-graalvm-community-21
+          tags: harbor.softleader.com.tw/library/maven:3-graalvm-community-21
           provenance: false
           no-cache: true
           pull: true
