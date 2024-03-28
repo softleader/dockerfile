@@ -8,7 +8,7 @@ on:
 
 jobs:
   tomcat9-jre8-temurin-jammy: # 這個是拿來比對的, 讓我們的 harbor 掃描上層的 base image
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, ubuntu-jammy]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -28,7 +28,7 @@ jobs:
           src: docker.io/tomcat:9-jre8-temurin-jammy
           dst: harbor.softleader.com.tw/library/tomcat:9-jre8-temurin-jammy
   tomcat9-jre8-temurin-jammy-taipei:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, ubuntu-jammy]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -53,7 +53,7 @@ jobs:
           pull: true
           push: true
   tomcat9-jre8-temurin-jammy-taipei-font:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, ubuntu-jammy]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
