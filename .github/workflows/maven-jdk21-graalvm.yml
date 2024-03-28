@@ -1,4 +1,4 @@
-name: maven-jdk21
+name: maven-jdk21-graalvm
 
 on:
   schedule:
