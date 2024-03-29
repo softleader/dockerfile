@@ -8,7 +8,7 @@ on:
 
 jobs:
   zulu-11-jre: # 這個是拿來比對的, 讓我們的 harbor 掃描上層的 base image
-    runs-on: [self-hosted, ubuntu-jammy]
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -28,7 +28,7 @@ jobs:
           src: docker.io/azul/zulu-openjdk-alpine:11-jre
           dst: harbor.softleader.com.tw/library/zulu-openjdk-alpine:11-jre
   zulu-11-jre-taipei:
-    runs-on: [self-hosted, ubuntu-jammy]
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -53,7 +53,7 @@ jobs:
           pull: true
           push: true
   zulu-11-font-jre-taipei:
-    runs-on: [self-hosted, ubuntu-jammy]
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
