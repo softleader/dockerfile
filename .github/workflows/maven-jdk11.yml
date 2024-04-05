@@ -23,7 +23,7 @@ jobs:
           username: ${{ secrets.SL_HARBOR_ROBOT }}
           password: ${{ secrets.SL_HARBOR_TOKEN }}
       - name: Build and push
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         with:
           context: .
           file: ./maven/Dockerfile.3-azulzulu-11
@@ -48,7 +48,7 @@ jobs:
           username: ${{ secrets.SL_HARBOR_ROBOT }}
           password: ${{ secrets.SL_HARBOR_TOKEN }}
       - name: Build and push
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         with:
           context: .
           file: ./maven/Dockerfile.3-eclipse-temurin-11
