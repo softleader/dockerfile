@@ -23,7 +23,7 @@ jobs:
           username: ${{ secrets.SL_HARBOR_ROBOT }}
           password: ${{ secrets.SL_HARBOR_TOKEN }}
       - name: Tag and push
-        uses: akhilerm/tag-push-action@v2.1.0
+        uses: akhilerm/tag-push-action@v2.2.0
         with:
           src: docker.io/azul/zulu-openjdk-alpine:11-jre
           dst: harbor.softleader.com.tw/library/zulu-openjdk-alpine:11-jre
