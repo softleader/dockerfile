@@ -2,13 +2,16 @@ name: keep-actions-alive
 
 on:
   schedule:
-    - cron: "0 0 * * *" # In UTC time
+    - cron: "0 0 * * SUN" # In UTC time
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 jobs:
+  # https://github.com/gautamkrishnar/keepalive-workflow
   keepalive:
     runs-on: ubuntu-latest
+    permissions:
+      actions: write
     steps:
       - uses: actions/checkout@v3
-      - uses: gautamkrishnar/keepalive-workflow@v1
+      - uses: gautamkrishnar/keepalive-workflow@v2
