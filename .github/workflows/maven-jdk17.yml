@@ -85,7 +85,7 @@ jobs:
 
 
   keepalive:
-    runs-on: [self-hosted, ubuntu-jammy]
+    runs-on: ubuntu-latest
     permissions:
       actions: write
     steps:
