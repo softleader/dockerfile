@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  zulu-8-jre: # 這個是拿來比對的, 讓我們的 harbor 掃描上層的 base image
+  zulu-8-jre: # 這個是拿來比對的，讓我們的 harbor 掃描上層的 base image
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -77,3 +77,11 @@ jobs:
           no-cache: true
           pull: true
           push: true
+
+  keepalive:
+    runs-on: [self-hosted, ubuntu-jammy]
+    permissions:
+      actions: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: gautamkrishnar/keepalive-workflow@v2

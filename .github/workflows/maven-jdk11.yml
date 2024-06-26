@@ -57,3 +57,11 @@ jobs:
           no-cache: true
           pull: true
           push: true
+
+  keepalive:
+    runs-on: [self-hosted, ubuntu-jammy]
+    permissions:
+      actions: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: gautamkrishnar/keepalive-workflow@v2
