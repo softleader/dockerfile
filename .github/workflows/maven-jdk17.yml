@@ -18,6 +18,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
         with:
           buildkitd-config-inline: |
+            debug = true
             [registry."docker.io"]
               mirrors = ["mirror.gcr.io"]
       - name: Login to DockerHub
@@ -47,6 +48,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
         with:
           buildkitd-config-inline: |
+            debug = true
             [registry."docker.io"]
               mirrors = ["mirror.gcr.io"]
       - name: Login to DockerHub
@@ -76,6 +78,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
         with:
           buildkitd-config-inline: |
+            debug = true
             [registry."docker.io"]
               mirrors = ["mirror.gcr.io"]
       - name: Login to DockerHub
