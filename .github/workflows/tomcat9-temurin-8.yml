@@ -28,7 +28,7 @@ jobs:
       - name: Tag and push
         uses: akhilerm/tag-push-action@v2.2.0
         with:
-          src: docker.io/tomcat:9-jre8-temurin-jammy
+          src: mirror.gcr.io/tomcat:9-jre8-temurin-jammy
           dst: harbor.softleader.com.tw/library/tomcat:9-jre8-temurin-jammy
   tomcat9-jre8-temurin-jammy-taipei:
     runs-on: ubuntu-latest

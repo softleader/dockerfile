@@ -28,7 +28,7 @@ jobs:
       - name: Tag and push
         uses: akhilerm/tag-push-action@v2.2.0
         with:
-          src: docker.io/eclipse-temurin:17-jre-alpine
+          src: mirror.gcr.io/eclipse-temurin:17-jre-alpine
           dst: harbor.softleader.com.tw/library/eclipse-temurin-alpine:17-jre
   eclipse-temurin-17-jre-taipei:
     runs-on: ubuntu-latest

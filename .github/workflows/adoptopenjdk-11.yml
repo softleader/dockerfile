@@ -28,7 +28,7 @@ jobs:
       - name: Tag and push
         uses: akhilerm/tag-push-action@v2.2.0
         with:
-          src: docker.io/adoptopenjdk/openjdk11:alpine-jre
+          src: mirror.gcr.io/adoptopenjdk/openjdk11:alpine-jre
           dst: harbor.softleader.com.tw/library/adoptopenjdk-alpine:11-jre
   adoptopenjdk-11-jre-taipei:
     runs-on: ubuntu-latest
