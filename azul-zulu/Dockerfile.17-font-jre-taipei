@@ -2,7 +2,7 @@ FROM azul/zulu-openjdk-alpine:17-jre
 LABEL maintainer="softleader.com.tw"
 
 RUN apk update &&\
-	# 避免 upstream 有些 package 沒更新到被掃出風險, 這邊強制都 upgrade 一下
+	# 避免 upstream 有些 package 沒更新到被掃出風險，這邊強制都 upgrade 一下
 	apk --no-cache upgrade &&\
     apk --no-cache add curl bash tzdata fontconfig ttf-dejavu &&\
     rm -rf /var/cache/apk/* &&\
@@ -15,5 +15,6 @@ ENV TZ=Asia/Taipei
 # 記憶體計算工具
 RUN curl -sL https://github.com/softleader/memory-calculator/releases/latest/download/linux-amd64.zip -o /tmp/linux-amd64.zip &&\
     unzip -q /tmp/linux-amd64.zip -d /tmp &&\
+    mv /tmp/entrypoint.sh / && chmod 755 /entrypoint.sh &&\
     mv /tmp/memory-calculator /usr/local/bin &&\
     rm /tmp/linux-amd64.zip

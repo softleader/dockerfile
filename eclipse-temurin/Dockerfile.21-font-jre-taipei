@@ -15,5 +15,6 @@ ENV TZ=Asia/Taipei
 # 記憶體計算工具
 RUN curl -sL https://github.com/softleader/memory-calculator/releases/latest/download/linux-amd64.zip -o /tmp/linux-amd64.zip &&\
     unzip -q /tmp/linux-amd64.zip -d /tmp &&\
+    mv /tmp/entrypoint.sh / && chmod 755 /entrypoint.sh &&\
     mv /tmp/memory-calculator /usr/local/bin &&\
     rm /tmp/linux-amd64.zip
