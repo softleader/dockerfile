@@ -52,7 +52,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: ./tomcat9
-          file: ./Dockerfile.8-jre-taipei
+          file: ./tomcat9/Dockerfile.8-jre-taipei
           tags: harbor.softleader.com.tw/library/tomcat:9-jre8-temurin-noble-taipei
           provenance: false
           no-cache: true
@@ -80,7 +80,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: ./tomcat9
-          file: ./Dockerfile.8-jre-taipei-font
+          file: ./tomcat9/Dockerfile.8-jre-taipei-font
           tags: harbor.softleader.com.tw/library/tomcat:9-jre8-temurin-noble-taipei-font
           provenance: false
           no-cache: true
