@@ -1,6 +1,7 @@
-FROM tomcat:9.0.84-jre8-temurin-jammy
+FROM tomcat:9.0-jre8-temurin-noble
 MAINTAINER softleader.com.tw
 
+COPY ext-conf/server.xml /usr/local/tomcat/conf/server.xml
 RUN apt update &&\
 	  # 避免 upstream 有些 package 沒更新到被掃出風險, 這邊強制都 upgrade 一下
     apt -y upgrade &&\

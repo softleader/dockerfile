@@ -1,0 +1,19 @@
+FROM eclipse-temurin:8-jre
+LABEL maintainer="softleader.com.tw"
+
+# 避免 upstream 有些 package 沒更新到被掃出風險, 這邊強制都 upgrade 一下
+RUN apt update && \
+    apt upgrade -y && \
+    apt install -y curl bash tzdata && \
+    apt clean && \
+    rm -rf /var/lib/apt/lists/* && \
+    cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime && \
+    echo "Asia/Taipei" > /etc/timezone && \
+    apt remove -y tzdata && \
+    apt autoremove -y
+
+# runtime app home
+ENV SL_HOME=/tmp/app
+ENV SL_DUMPS=$SL_HOME
+ENV SL_LOGS=$SL_HOME
+ENV TZ=Asia/Taipei

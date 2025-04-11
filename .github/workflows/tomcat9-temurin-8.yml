@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  tomcat9-jre8-temurin-jammy: # 這個是拿來比對的，讓我們的 harbor 掃描上層的 base image
+  tomcat9-jre8-temurin-noble: # 這個是拿來比對的，讓我們的 harbor 掃描上層的 base image
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -28,9 +28,9 @@ jobs:
       - name: Tag and push
         uses: akhilerm/tag-push-action@v2.2.0
         with:
-          src: mirror.gcr.io/tomcat:9-jre8-temurin-jammy
-          dst: harbor.softleader.com.tw/library/tomcat:9-jre8-temurin-jammy
-  tomcat9-jre8-temurin-jammy-taipei:
+          src: mirror.gcr.io/tomcat:9-jre8-temurin-noble
+          dst: harbor.softleader.com.tw/library/tomcat:9-jre8-temurin-noble
+  tomcat9-jre8-temurin-noble-taipei:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -51,14 +51,14 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
-          context: .
-          file: ./tomcat9/Dockerfile.8-jre-taipei
-          tags: harbor.softleader.com.tw/library/tomcat:9-jre8-temurin-jammy-taipei
+          context: ./tomcat9
+          file: ./Dockerfile.8-jre-taipei
+          tags: harbor.softleader.com.tw/library/tomcat:9-jre8-temurin-noble-taipei
           provenance: false
           no-cache: true
           pull: true
           push: true
-  tomcat9-jre8-temurin-jammy-taipei-font:
+  tomcat9-jre8-temurin-noble-taipei-font:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -79,9 +79,9 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
-          context: .
-          file: ./tomcat9/Dockerfile.8-jre-taipei-font
-          tags: harbor.softleader.com.tw/library/tomcat:9-jre8-temurin-jammy-taipei-font
+          context: ./tomcat9
+          file: ./Dockerfile.8-jre-taipei-font
+          tags: harbor.softleader.com.tw/library/tomcat:9-jre8-temurin-noble-taipei-font
           provenance: false
           no-cache: true
           pull: true

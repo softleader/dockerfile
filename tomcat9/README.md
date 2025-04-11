@@ -6,8 +6,8 @@
 
 ```sh
 # Java 8
-$ docker pull harbor.softleader.com.tw/library/tomcat:9-jre8-temurin-jammy-taipei
-$ docker pull harbor.softleader.com.tw/library/tomcat:9-jre8-temurin-jammy-taipei-font
+$ docker pull harbor.softleader.com.tw/library/tomcat:9-jre8-temurin-noble-taipei
+$ docker pull harbor.softleader.com.tw/library/tomcat:9-jre8-temurin-noble-taipei-font
 ```
 
 > font 版本的內含了 [DejaVu](https://dejavu-fonts.github.io/) 字型，image 大約會比無 font 版本的多 10mb, 通常會用在 pdf 匯出指定字型的需求上
