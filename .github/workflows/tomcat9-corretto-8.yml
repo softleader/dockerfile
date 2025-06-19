@@ -1,0 +1,96 @@
+name: tomcat9-corretto-jdk8 # 為了資安暫時先用這個
+
+on:
+  schedule:
+    - cron: "50 15 * * *" # In UTC time
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  tomcat9-jre8-temurin-noble: # 這個是拿來比對的，讓我們的 harbor 掃描上層的 base image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+        with:
+          buildkitd-flags: --debug
+          buildkitd-config: .github/buildkitd.toml
+      - name: Login to DockerHub
+        uses: docker/login-action@v3
+        with:
+          registry: harbor.softleader.com.tw
+          username: ${{ secrets.SL_HARBOR_ROBOT }}
+          password: ${{ secrets.SL_HARBOR_TOKEN }}
+      - name: Tag and push
+        uses: akhilerm/tag-push-action@v2.2.0
+        with:
+          src: mirror.gcr.io/tomcat:9.0-jdk8-corretto-al2
+          dst: harbor.softleader.com.tw/library/tomcat:9.0-jdk8-corretto-al2
+  tomcat9-jdk8-corretto-al2-taipei:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+        with:
+          buildkitd-flags: --debug
+          buildkitd-config: .github/buildkitd.toml
+      - name: Login to DockerHub
+        uses: docker/login-action@v3
+        with:
+          registry: harbor.softleader.com.tw
+          username: ${{ secrets.SL_HARBOR_ROBOT }}
+          password: ${{ secrets.SL_HARBOR_TOKEN }}
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: ./tomcat9
+          file: ./tomcat9/Dockerfile.8-jdk-corretto-taipei
+          tags: harbor.softleader.com.tw/library/tomcat:9-jdk8-corretto-al2-taipei
+          provenance: false
+          no-cache: true
+          pull: true
+          push: true
+  tomcat9-jdk8-corretto-al2-taipei-font:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+        with:
+          buildkitd-flags: --debug
+          buildkitd-config: .github/buildkitd.toml
+      - name: Login to DockerHub
+        uses: docker/login-action@v3
+        with:
+          registry: harbor.softleader.com.tw
+          username: ${{ secrets.SL_HARBOR_ROBOT }}
+          password: ${{ secrets.SL_HARBOR_TOKEN }}
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: ./tomcat9
+          file: ./tomcat9/Dockerfile.8-jdk-corretto-taipei-font
+          tags: harbor.softleader.com.tw/library/tomcat:9-jdk8-corretto-al2-taipei-font
+          provenance: false
+          no-cache: true
+          pull: true
+          push: true
+
+  keepalive:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: liskin/gh-workflow-keepalive@v1
