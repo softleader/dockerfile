@@ -5,6 +5,7 @@ Base Image 來自 [ghcr.io/carlossg/maven](https://ghcr.io/carlossg/maven), 公�
 ```sh
 # GraalVM for build native
 docker pull harbor.softleader.com.tw/library/maven:3-graalvm-community-21
+docker pull harbor.softleader.com.tw/library/maven:3-graalvm-community-25
 
 # 公司只針對 eclipse-temurin 維護多種 Java 版本
 docker pull harbor.softleader.com.tw/library/maven:3-eclipse-temurin-21
