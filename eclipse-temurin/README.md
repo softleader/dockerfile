@@ -13,7 +13,7 @@ docker pull harbor.softleader.com.tw/library/eclipse-temurin-alpine:25-font-jre-
 
 # Java 21
 docker pull harbor.softleader.com.tw/library/eclipse-temurin-alpine:21-jre-taipei
-$ docker pull harbor.softleader.com.tw/library/eclipse-temurin-alpine:21-font-jre-taipei
+docker pull harbor.softleader.com.tw/library/eclipse-temurin-alpine:21-font-jre-taipei
 
 # Java 17
 docker pull harbor.softleader.com.tw/library/eclipse-temurin-alpine:17-jre-taipei
