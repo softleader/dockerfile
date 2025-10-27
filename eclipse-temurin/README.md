@@ -7,21 +7,25 @@
 **Eclipse Temurin 以前叫做 AdoptOpenJDK, 之後來加入了 Eclipse 基金會才改了名字，公司對應的舊版本名字將維持不變，從 17 版之後才會改使用新名字**
 
 ```sh
-# Java 8
-$ docker pull harbor.softleader.com.tw/library/adoptopenjdk-alpine:8-jre-taipei
-$ docker pull harbor.softleader.com.tw/library/adoptopenjdk-alpine:8-font-jre-taipei
-
-# Java 11
-$ docker pull harbor.softleader.com.tw/library/adoptopenjdk-alpine:11-jre-taipei
-$ docker pull harbor.softleader.com.tw/library/adoptopenjdk-alpine:11-font-jre-taipei
-
-# Java 17
-$ docker pull harbor.softleader.com.tw/library/eclipse-temurin-alpine:17-jre-taipei
-$ docker pull harbor.softleader.com.tw/library/eclipse-temurin-alpine:17-font-jre-taipei
+# Java 25
+docker pull harbor.softleader.com.tw/library/eclipse-temurin-alpine:25-jre-taipei
+docker pull harbor.softleader.com.tw/library/eclipse-temurin-alpine:25-font-jre-taipei
 
 # Java 21
-$ docker pull harbor.softleader.com.tw/library/eclipse-temurin-alpine:21-jre-taipei
-$ docker pull harbor.softleader.com.tw/library/eclipse-temurin-alpine:21-font-jre-taipei
+docker pull harbor.softleader.com.tw/library/eclipse-temurin-alpine:21-jre-taipei
+docker pull harbor.softleader.com.tw/library/eclipse-temurin-alpine:21-font-jre-taipei
+
+# Java 17
+docker pull harbor.softleader.com.tw/library/eclipse-temurin-alpine:17-jre-taipei
+docker pull harbor.softleader.com.tw/library/eclipse-temurin-alpine:17-font-jre-taipei
+
+# Java 11
+docker pull harbor.softleader.com.tw/library/adoptopenjdk-alpine:11-jre-taipei
+docker pull harbor.softleader.com.tw/library/adoptopenjdk-alpine:11-font-jre-taipei
+
+# Java 8
+docker pull harbor.softleader.com.tw/library/adoptopenjdk-alpine:8-jre-taipei
+docker pull harbor.softleader.com.tw/library/adoptopenjdk-alpine:8-font-jre-taipei
 ```
 
 > font 版本的內含了 [DejaVu](https://dejavu-fonts.github.io/) 字型，image 大約會比無 font 版本的多 10mb, 通常會用在 pdf 匯出指定字型的需求上

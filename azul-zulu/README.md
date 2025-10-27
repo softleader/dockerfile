@@ -5,17 +5,17 @@
 公司維護的 JRE Base Image 的上層依賴了 [Azul Zulu](https://www.azul.com/products/zulu-enterprise/jdk-comparison-matrix/), 另外會再多處理如 TimeZone 等常見的共通性設定，包含了 Java 8, Java 11 等專案中常用的 JRE 版本:
 
 ```sh
-# Java 8
-$ docker pull harbor.softleader.com.tw/library/zulu-openjdk-alpine:8-jre-taipei
-$ docker pull harbor.softleader.com.tw/library/zulu-openjdk-alpine:8-font-jre-taipei
+# Java 17
+docker pull harbor.softleader.com.tw/library/zulu-openjdk-alpine:17-jre-taipei
+docker pull harbor.softleader.com.tw/library/zulu-openjdk-alpine:17-font-jre-taipei
 
 # Java 11
-$ docker pull harbor.softleader.com.tw/library/zulu-openjdk-alpine:11-jre-taipei
-$ docker pull harbor.softleader.com.tw/library/zulu-openjdk-alpine:11-font-jre-taipei
+docker pull harbor.softleader.com.tw/library/zulu-openjdk-alpine:11-jre-taipei
+docker pull harbor.softleader.com.tw/library/zulu-openjdk-alpine:11-font-jre-taipei
 
-# Java 17
-$ docker pull harbor.softleader.com.tw/library/zulu-openjdk-alpine:17-jre-taipei
-$ docker pull harbor.softleader.com.tw/library/zulu-openjdk-alpine:17-font-jre-taipei
+# Java 8
+docker pull harbor.softleader.com.tw/library/zulu-openjdk-alpine:8-jre-taipei
+docker pull harbor.softleader.com.tw/library/zulu-openjdk-alpine:8-font-jre-taipei
 ```
 
 > font 版本的內含了 [DejaVu](https://dejavu-fonts.github.io/) 字型，image 大約會比無 font 版本的多 10mb, 通常會用在 pdf 匯出指定字型的需求上

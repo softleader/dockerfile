@@ -8,7 +8,7 @@ build_image() {
 }
 
 image=harbor.softleader.com.tw/library/maven
-tags=(3-eclipse-temurin-8 3-azulzulu-11 3-eclipse-temurin-11 3-azulzulu-17 3-eclipse-temurin-17 3-eclipse-temurin-17-nodejs 3-eclipse-temurin-21)
+tags=($(ls -1 Dockerfile.* | sed 's/Dockerfile.//' | sort -t- -k1 -n -r))
 
 if [ "$1" = "ls" ]; then
   for tag in "${tags[@]}"

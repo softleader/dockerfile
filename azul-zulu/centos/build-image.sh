@@ -8,7 +8,7 @@ build_image() {
 }
 
 image=harbor.softleader.com.tw/library/zulu-openjdk-centos
-tags=(11-font-jre-taipei)
+tags=($(ls -1 Dockerfile.* | sed 's/Dockerfile.//' | sort -t- -k1 -n -r))
 
 if [ "$1" = "ls" ]; then
   for tag in "${tags[@]}"

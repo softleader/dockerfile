@@ -8,7 +8,7 @@ build_image() {
 }
 
 image=harbor.softleader.com.tw/library/eclipse-temurin-alpine
-tags=(21-jre-taipei 21-font-jre-taipei 17-jre-taipei 17-font-jre-taipei 11-jre-taipei 11-font-jre-taipei 8-jre-taipei 8-font-jre-taipei)
+tags=($(ls -1 Dockerfile.* | sed 's/Dockerfile.//' | sort -t- -k1 -n -r))
 
 if [ "$1" = "ls" ]; then
   for tag in "${tags[@]}"
