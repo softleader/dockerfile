@@ -1,0 +1,12 @@
+FROM node:20.19.0-alpine
+LABEL maintainer="softleader.com.tw"
+
+WORKDIR /app
+
+ARG PNPM_VERSION=latest
+
+ENV NODE_OPTIONS="--dns-result-order=ipv4first"
+
+RUN apk add --no-cache make npm zip && \
+    npm install -g pnpm@${PNPM_VERSION} && \
+    rm -rf /var/cache/apk/*
