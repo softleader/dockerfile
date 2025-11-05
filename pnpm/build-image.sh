@@ -2,7 +2,7 @@
 
 build_image() {
   set -ex
-  docker build --no-cache --pull -f Dockerfile.$1 -t ${image}:$1 .
+  docker build -f Dockerfile.$1 -t ${image}:$1 .
   docker push ${image}:$1
   set +ex
 }
