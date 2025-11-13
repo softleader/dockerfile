@@ -23,12 +23,6 @@ RUN wget https://github.com/github/codeql-cli-binaries/releases/download/v${CODE
   && rm codeql-linux64.zip
 ENV PATH="/opt/codeql:${PATH}"
 
-# 安裝 GitHub CLI
-RUN type -p gh || \
-    curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg && \
-    curl -fsSL https://cli.github.com/packages/githubcli.repo | tee /etc/apt/sources.list.d/github-cli.list > /dev/null && \
-    apt update && apt install gh -y
-
 # 建立自動 JDK 切換腳本
 RUN cat <<'EOF' > /usr/local/bin/java-select
 #!/usr/bin/env bash
