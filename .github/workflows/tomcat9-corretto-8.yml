@@ -49,7 +49,7 @@ jobs:
           username: ${{ secrets.SL_HARBOR_ROBOT }}
           password: ${{ secrets.SL_HARBOR_TOKEN }}
       - name: Build and push
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: ./tomcat9
           file: ./tomcat9/Dockerfile.8-jdk-corretto-taipei
@@ -77,7 +77,7 @@ jobs:
           username: ${{ secrets.SL_HARBOR_ROBOT }}
           password: ${{ secrets.SL_HARBOR_TOKEN }}
       - name: Build and push
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: ./tomcat9
           file: ./tomcat9/Dockerfile.8-jdk-corretto-taipei-font
