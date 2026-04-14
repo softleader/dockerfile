@@ -20,7 +20,7 @@ jobs:
           buildkitd-flags: --debug
           buildkitd-config: .github/buildkitd.toml
       - name: Login to DockerHub
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: harbor.softleader.com.tw
           username: ${{ secrets.SL_HARBOR_ROBOT }}
@@ -43,7 +43,7 @@ jobs:
           buildkitd-flags: --debug
           buildkitd-config: .github/buildkitd.toml
       - name: Login to DockerHub
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: harbor.softleader.com.tw
           username: ${{ secrets.SL_HARBOR_ROBOT }}
@@ -71,7 +71,7 @@ jobs:
           buildkitd-flags: --debug
           buildkitd-config: .github/buildkitd.toml
       - name: Login to DockerHub
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: harbor.softleader.com.tw
           username: ${{ secrets.SL_HARBOR_ROBOT }}
