@@ -1,4 +1,4 @@
-FROM nginxinc/nginx-unprivileged:alpine3.23-perl
+FROM nginxinc/nginx-unprivileged:stable-alpine
 
 USER root
 
