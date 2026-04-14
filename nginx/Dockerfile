@@ -1,4 +1,4 @@
-FROM harbor.softleader.com.tw/library/nginx-unprivileged:stable-alpine-1.28.3
+FROM nginxinc/nginx-unprivileged:stable-alpine
 
 USER root
 
