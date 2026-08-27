@@ -25,6 +25,13 @@ jobs:
           registry: harbor.softleader.com.tw
           username: ${{ secrets.SL_HARBOR_ROBOT }}
           password: ${{ secrets.SL_HARBOR_TOKEN }}
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.CI_APP_CLIENT_ID }}
+          private-key: ${{ secrets.CI_APP_PRIVATE_KEY }}
+          owner: softleader
       - name: Build and push
         uses: docker/build-push-action@v7
         with:
@@ -36,7 +43,7 @@ jobs:
           pull: true
           push: true
           secrets: |
-            GH_TOKEN=${{ secrets.PAT || secrets.GH_TOKEN || secrets.GITHUB_TOKEN }}
+            GH_TOKEN=${{ steps.app-token.outputs.token }}
 
   keepalive:
     runs-on: ubuntu-latest
