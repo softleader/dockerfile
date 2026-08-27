@@ -35,6 +35,8 @@ jobs:
           no-cache: true
           pull: true
           push: true
+          secrets: |
+            GH_TOKEN=${{ secrets.GH_TOKEN || secrets.GITHUB_TOKEN }}
 
   keepalive:
     runs-on: ubuntu-latest
