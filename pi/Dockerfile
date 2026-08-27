@@ -24,11 +24,11 @@ RUN --mount=type=secret,id=GH_TOKEN,uid=10001 \
     --mount=type=secret,id=GITHUB_TOKEN,uid=10001 \
   GH_TOKEN_VAL="$(cat /run/secrets/GH_TOKEN 2>/dev/null || cat /run/secrets/GITHUB_TOKEN 2>/dev/null || true)" \
   && if [ -n "$GH_TOKEN_VAL" ]; then \
-       git config --global url."https://${GH_TOKEN_VAL}@github.com/".insteadOf "https://github.com/"; \
+       git config --global url."https://x-access-token:${GH_TOKEN_VAL}@github.com/".insteadOf "https://github.com/"; \
      fi \
   && npx --yes skills add softleader/agent-skills -g -y -a pi \
   && if [ -n "$GH_TOKEN_VAL" ]; then \
-       git config --global --unset url."https://${GH_TOKEN_VAL}@github.com/".insteadOf; \
+       git config --global --unset url."https://x-access-token:${GH_TOKEN_VAL}@github.com/".insteadOf; \
      fi \
   && npm cache clean --force
 
