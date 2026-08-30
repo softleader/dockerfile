@@ -1,0 +1,43 @@
+# syntax=docker/dockerfile:1@sha256:ecfaec9ed6d810b56388c508f4121597bfbba70d41a6dfeee4d8cad5f295fc32
+
+FROM docker:27.5-cli@sha256:851f91d241214e7c6db86513b270d58776379aacc5eb9c4a87e5b47115e3065c
+
+LABEL maintainer="softleader.com.tw"
+LABEL org.opencontainers.image.description="SoftLeader amd64 Docker pipeline tool image"
+
+ARG BUILDX_VERSION=v0.36.1
+ARG BUILDX_LINUX_AMD64_SHA256=48af8a397ebd60178778bf63611dbcebe5f5e7a9be90eb9147b24b9587455778
+ARG RIPGREP_VERSION=15.2.0
+ARG RIPGREP_LINUX_X86_64_SHA256=33e15bcf1624b25cdd2a55813a47a2f95dbe126268203e76aa6a585d1e7b149c
+
+RUN apk add --no-cache bash jq make \
+    && set -eux; \
+    download_dir="$(mktemp -d)"; \
+    buildx_download="${download_dir}/docker-buildx"; \
+    wget -qO "${buildx_download}" \
+      "https://github.com/docker/buildx/releases/download/${BUILDX_VERSION}/buildx-${BUILDX_VERSION}.linux-amd64"; \
+    printf '%s  %s\n' "${BUILDX_LINUX_AMD64_SHA256}" "${buildx_download}" | sha256sum -c -s; \
+    install -m 0755 "${buildx_download}" /usr/local/libexec/docker/cli-plugins/docker-buildx; \
+    ripgrep_archive="ripgrep-${RIPGREP_VERSION}-x86_64-unknown-linux-musl.tar.gz"; \
+    ripgrep_download="${download_dir}/${ripgrep_archive}"; \
+    wget -qO "${ripgrep_download}" \
+      "https://github.com/BurntSushi/ripgrep/releases/download/${RIPGREP_VERSION}/${ripgrep_archive}"; \
+    printf '%s  %s\n' "${RIPGREP_LINUX_X86_64_SHA256}" "${ripgrep_download}" | sha256sum -c -s; \
+    tar -xzf "${ripgrep_download}" -C "${download_dir}"; \
+    install -m 0755 \
+      "${download_dir}/ripgrep-${RIPGREP_VERSION}-x86_64-unknown-linux-musl/rg" \
+      /usr/local/bin/rg; \
+    rm -rf "${download_dir}"; \
+    docker --version | grep -F 'Docker version 27.5.'; \
+    docker buildx version | grep -F "${BUILDX_VERSION}"; \
+    rg --version | head -n 1 | grep -F "ripgrep ${RIPGREP_VERSION}"; \
+    command -v bash; \
+    command -v git; \
+    command -v jq; \
+    command -v make; \
+    command -v sha256sum; \
+    command -v tar; \
+    ! command -v curl; \
+    ! command -v perl; \
+    ! command -v kind; \
+    ! command -v kubectl

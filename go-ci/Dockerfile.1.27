@@ -1,0 +1,51 @@
+# syntax=docker/dockerfile:1@sha256:ecfaec9ed6d810b56388c508f4121597bfbba70d41a6dfeee4d8cad5f295fc32
+
+ARG GO_IMAGE=golang:1.27.0-bookworm@sha256:ded31c68586d2e49e760acc2e65a884b23d032e9bbbed0ae0c55abd3fcaf4452
+
+FROM ${GO_IMAGE} AS kustomize
+
+ARG KUSTOMIZE_VERSION=5.8.1
+RUN GOBIN=/out go install "sigs.k8s.io/kustomize/kustomize/v5@v${KUSTOMIZE_VERSION}"
+
+FROM ${GO_IMAGE}
+
+LABEL maintainer="softleader.com.tw"
+LABEL org.opencontainers.image.description="SoftLeader amd64 Go pipeline tool image"
+
+ARG KUSTOMIZE_VERSION=5.8.1
+ARG RIPGREP_VERSION=15.2.0
+ARG RIPGREP_LINUX_X86_64_SHA256=33e15bcf1624b25cdd2a55813a47a2f95dbe126268203e76aa6a585d1e7b149c
+ARG YQ_VERSION=4.53.6
+ARG YQ_LINUX_AMD64_SHA256=c5f056448f973ae7d39b5401949648a78f2dc1947d6a8eb65be60d5c504b9385
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends jq \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY --from=kustomize /out/kustomize /usr/local/bin/kustomize
+
+RUN set -eux; \
+    download_dir="$(mktemp -d)"; \
+    yq_download="${download_dir}/yq"; \
+    curl --proto '=https' --tlsv1.2 --fail --silent --show-error --location \
+      "https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64" \
+      --output "${yq_download}"; \
+    printf '%s  %s\n' "${YQ_LINUX_AMD64_SHA256}" "${yq_download}" | sha256sum --check --status; \
+    install -m 0755 "${yq_download}" /usr/local/bin/yq; \
+    ripgrep_archive="ripgrep-${RIPGREP_VERSION}-x86_64-unknown-linux-musl.tar.gz"; \
+    ripgrep_download="${download_dir}/${ripgrep_archive}"; \
+    curl --proto '=https' --tlsv1.2 --fail --silent --show-error --location \
+      "https://github.com/BurntSushi/ripgrep/releases/download/${RIPGREP_VERSION}/${ripgrep_archive}" \
+      --output "${ripgrep_download}"; \
+    printf '%s  %s\n' "${RIPGREP_LINUX_X86_64_SHA256}" "${ripgrep_download}" | sha256sum --check --status; \
+    tar -xzf "${ripgrep_download}" -C "${download_dir}"; \
+    install -m 0755 \
+      "${download_dir}/ripgrep-${RIPGREP_VERSION}-x86_64-unknown-linux-musl/rg" \
+      /usr/local/bin/rg; \
+    rm -rf "${download_dir}"; \
+    test "$(go version)" = "go version go1.27.0 linux/amd64"; \
+    test "$(kustomize version)" = "v${KUSTOMIZE_VERSION}"; \
+    test "$(yq --version)" = "yq (https://github.com/mikefarah/yq/) version v${YQ_VERSION}"; \
+    rg --version | head -n 1 | grep -F "ripgrep ${RIPGREP_VERSION}"; \
+    ! command -v kind; \
+    ! command -v kubectl
