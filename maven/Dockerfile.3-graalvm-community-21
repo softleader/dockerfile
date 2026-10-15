@@ -1,4 +1,4 @@
-FROM ghcr.io/carlossg/maven:3-graalvm-community-21
+FROM ghcr.io/carlossg/maven:3.9-graalvm-community-21
 LABEL maintainer="softleader.com.tw"
 
 # Disable maven blocking external HTTP repositores
