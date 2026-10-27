@@ -7,6 +7,7 @@ ARG PNPM_VERSION=latest
 
 ENV NODE_OPTIONS="--dns-result-order=ipv4first"
 
-RUN apk add --no-cache make npm zip && \
+RUN apk --no-cache upgrade && \
+    apk add --no-cache make npm zip && \
     npm install -g pnpm@${PNPM_VERSION} && \
     rm -rf /var/cache/apk/*
